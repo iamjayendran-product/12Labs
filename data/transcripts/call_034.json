@@ -1,0 +1,24 @@
+{
+  "id": "call_034",
+  "customer_name": "Victor Hallstrom",
+  "company": "Ironclad Security Training",
+  "date": "2026-03-24",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "Why did you ultimately decide not to renew your contract?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Mainly budget reallocation to a different initiative this year, not a product complaint. If our budget situation changes next year we'd genuinely consider coming back."
+    },
+    {
+      "speaker": "agent",
+      "text": "Was there anything product-side that made the decision easier?"
+    },
+    {
+      "speaker": "customer",
+      "text": "The lack of an annual prepay discount option made it hard to justify to finance compared to a competitor offering 20% off for annual commitment."
+    }
+  ]
+}

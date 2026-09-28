@@ -1,0 +1,24 @@
+{
+  "id": "call_006",
+  "customer_name": "Kwame Boateng",
+  "company": "Riverside Audiobooks",
+  "date": "2026-01-25",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "What features are you hoping to see next?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Multi-speaker dialogue in a single generation call would save us so much post-production work. Right now we generate each character separately and stitch them together in an editor."
+    },
+    {
+      "speaker": "agent",
+      "text": "How much time would that save, roughly?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Easily half our editing time on multi-character chapters. That's probably 5-6 hours a week for our small team."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "call_015",
+  "customer_name": "Chloe Bennett",
+  "company": "StudyBuddy EdTech",
+  "date": "2026-02-13",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "What's been frustrating about the support experience?"
+    },
+    {
+      "speaker": "customer",
+      "text": "We're on the free tier for testing and support response has been slow \u2014 four days for a ticket about a rate-limiting question. I understand paid tiers get priority, but four days stalled our evaluation."
+    },
+    {
+      "speaker": "agent",
+      "text": "Would that affect whether you upgrade?"
+    },
+    {
+      "speaker": "customer",
+      "text": "It actually made us hesitant. If free-tier support is that slow, we worry paid-tier will be slow too if we hit a real production incident."
+    }
+  ]
+}

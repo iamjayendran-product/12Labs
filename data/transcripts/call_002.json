@@ -1,0 +1,24 @@
+{
+  "id": "call_002",
+  "customer_name": "Devon Marsh",
+  "company": "Latency Labs (ironic, I know)",
+  "date": "2026-01-16",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "What's been your experience with response latency on the streaming API?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Latency is honestly our biggest pain point. For real-time voice agents we're seeing 800ms to 1.2s time-to-first-audio-byte, and our use case needs sub-300ms to feel conversational."
+    },
+    {
+      "speaker": "agent",
+      "text": "Has that affected how you use the product?"
+    },
+    {
+      "speaker": "customer",
+      "text": "We had to fall back to pre-generating common responses instead of full real-time synthesis. It works, but it defeats a lot of the point of using a live API."
+    }
+  ]
+}

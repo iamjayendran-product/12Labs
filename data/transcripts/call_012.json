@@ -1,0 +1,24 @@
+{
+  "id": "call_012",
+  "customer_name": "Harold Jennings",
+  "company": "Legacy Radio Network",
+  "date": "2026-02-07",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "How do you feel about pricing relative to the value you're getting?"
+    },
+    {
+      "speaker": "customer",
+      "text": "It's fair for what it replaces \u2014 we used to pay a voice actor by the hour for every ad read. Even at current prices we're saving money and turning ads around same-day instead of same-week."
+    },
+    {
+      "speaker": "agent",
+      "text": "Anything about billing that's been confusing?"
+    },
+    {
+      "speaker": "customer",
+      "text": "The usage dashboard lags behind actual billing by about a day, so we can't always tell in real time if we're about to hit a tier limit."
+    }
+  ]
+}

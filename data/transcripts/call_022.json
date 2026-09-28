@@ -1,0 +1,24 @@
+{
+  "id": "call_022",
+  "customer_name": "Felix Andersson",
+  "company": "Nightshift Podcast Network",
+  "date": "2026-02-27",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "How has the dashboard/UI been to work with day to day?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Clean and fast, no complaints. I especially like being able to A/B two voice settings side by side before committing to a full generation."
+    },
+    {
+      "speaker": "agent",
+      "text": "Anything missing from the dashboard?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Bulk generation queue status could be clearer \u2014 when we submit 50 files at once, we can't easily see which ones failed without checking each one individually."
+    }
+  ]
+}

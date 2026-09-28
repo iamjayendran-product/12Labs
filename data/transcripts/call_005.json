@@ -1,0 +1,24 @@
+{
+  "id": "call_005",
+  "customer_name": "Angela Ruiz",
+  "company": "Bright Path Learning",
+  "date": "2026-01-22",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "How's support been when you've run into issues?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Genuinely excellent. We had a voice cloning artifact issue and got a real engineer on a call within a few hours, not a canned response. They fixed it same day."
+    },
+    {
+      "speaker": "agent",
+      "text": "Anything about support that could improve?"
+    },
+    {
+      "speaker": "customer",
+      "text": "The live chat widget on the dashboard sometimes shows as 'offline' even during business hours, which made us think support wasn't available. We ended up emailing instead."
+    }
+  ]
+}

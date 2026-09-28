@@ -1,0 +1,24 @@
+{
+  "id": "call_008",
+  "customer_name": "Ben Okafor",
+  "company": "Clearline Support Co.",
+  "date": "2026-01-29",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "You're using this for a customer support IVR \u2014 how's that going?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Callers regularly compliment how natural the voice sounds, which honestly surprised us. Complaint volume about 'talking to a robot' dropped noticeably after we switched."
+    },
+    {
+      "speaker": "agent",
+      "text": "Any issues specific to the IVR use case?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Interruption handling is rough \u2014 if a caller talks over the agent, the audio doesn't stop cleanly, there's an awkward overlap for almost a second."
+    }
+  ]
+}

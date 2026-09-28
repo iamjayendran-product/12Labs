@@ -1,0 +1,24 @@
+{
+  "id": "call_009",
+  "customer_name": "Grace Liu",
+  "company": "Pixelforge Studio",
+  "date": "2026-02-01",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "How's the API documentation been for integration?"
+    },
+    {
+      "speaker": "customer",
+      "text": "It's solid overall, well organized. But the websocket streaming docs are thinner than the REST docs \u2014 we had to read the SDK source code to figure out reconnection behavior."
+    },
+    {
+      "speaker": "agent",
+      "text": "Anything else on docs?"
+    },
+    {
+      "speaker": "customer",
+      "text": "An end-to-end tutorial for a real-time conversational agent, not just isolated endpoint docs, would've saved us a week of trial and error."
+    }
+  ]
+}

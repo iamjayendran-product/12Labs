@@ -1,0 +1,24 @@
+{
+  "id": "call_011",
+  "customer_name": "Yuki Tanaka",
+  "company": "Zenith Translation Services",
+  "date": "2026-02-05",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "How's the voice quality for Japanese specifically?"
+    },
+    {
+      "speaker": "customer",
+      "text": "It's improved a lot since we started six months ago, but pitch accent still sounds slightly off on certain words compared to a native speaker. Good enough for drafts, not final delivery to clients yet."
+    },
+    {
+      "speaker": "agent",
+      "text": "What would 'final delivery ready' look like to you?"
+    },
+    {
+      "speaker": "customer",
+      "text": "If a native Japanese speaker on our team couldn't distinguish it from a human recording in a blind test, we'd switch entirely. We're maybe 90% there."
+    }
+  ]
+}

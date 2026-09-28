@@ -1,0 +1,24 @@
+{
+  "id": "call_029",
+  "customer_name": "Fatima Al-Rashid",
+  "company": "Beacon Arabic Media",
+  "date": "2026-03-14",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "How's Arabic language support been for your news content?"
+    },
+    {
+      "speaker": "customer",
+      "text": "It's usable but diacritics handling is inconsistent \u2014 the same word can be pronounced two different ways depending on context, and the model doesn't always pick correctly without us pre-annotating text."
+    },
+    {
+      "speaker": "agent",
+      "text": "Is that a blocker for going all-in on the platform?"
+    },
+    {
+      "speaker": "customer",
+      "text": "For now yes, we're running a hybrid workflow with human voice talent for anything ambiguous. If Arabic diacritic handling improved, we'd move fully over."
+    }
+  ]
+}

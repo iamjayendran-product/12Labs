@@ -1,0 +1,24 @@
+{
+  "id": "call_028",
+  "customer_name": "Liam O'Sullivan",
+  "company": "Turnstile Ticketing",
+  "date": "2026-03-12",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "How's voice quality held up for event announcement audio?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Really strong for scripted announcements. Where it struggles is numbers and times read aloud \u2014 '3:45 PM' sometimes comes out with an odd pause or gets read as 'three forty five' inconsistently across generations."
+    },
+    {
+      "speaker": "agent",
+      "text": "Has that required manual review?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Yes, we manually spot-check every announcement with a time or date in it before publishing, which adds friction to an otherwise fast workflow."
+    }
+  ]
+}

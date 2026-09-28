@@ -1,0 +1,24 @@
+{
+  "id": "call_036",
+  "customer_name": "Sam Whitcombe",
+  "company": "Alpine Trail Guides",
+  "date": "2026-03-28",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "How's the self-serve dashboard experience been overall?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Pretty intuitive, our non-technical team members were able to generate and manage voices without engineering help, which was the whole point for us."
+    },
+    {
+      "speaker": "agent",
+      "text": "Anything you'd still want changed in the dashboard?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Search within our generated audio library is basically just filename matching \u2014 a way to search by transcript content would save a lot of scrolling."
+    }
+  ]
+}

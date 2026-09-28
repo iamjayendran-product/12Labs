@@ -1,0 +1,24 @@
+{
+  "id": "call_003",
+  "customer_name": "Priya Nadar",
+  "company": "Solace Health",
+  "date": "2026-01-18",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "How would you describe the onboarding experience?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Getting the API key and first request working took maybe 15 minutes, which was great. The docs have a working curl example that just worked, no fighting with auth headers."
+    },
+    {
+      "speaker": "agent",
+      "text": "Anything that could be smoother?"
+    },
+    {
+      "speaker": "customer",
+      "text": "The Python SDK examples are a bit behind \u2014 one of them referenced a parameter that's been renamed. Minor, but it cost me 20 minutes of confusion."
+    }
+  ]
+}

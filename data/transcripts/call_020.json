@@ -1,0 +1,24 @@
+{
+  "id": "call_020",
+  "customer_name": "Jordan Pike",
+  "company": "Insight Analytics",
+  "date": "2026-02-23",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "Overall, how would you sum up your experience so far?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Strong product, rough pricing pain as we scale, and latency that's fine for async content but not yet ready for real-time voice agents. We're staying, but watching the roadmap closely for both of those."
+    },
+    {
+      "speaker": "agent",
+      "text": "What would make you an advocate rather than just a satisfied customer?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Ship the low-latency streaming tier and a volume pricing plan, and we'd be actively recommending you to other teams in our network."
+    }
+  ]
+}

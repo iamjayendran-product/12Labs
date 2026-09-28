@@ -1,0 +1,24 @@
+{
+  "id": "call_010",
+  "customer_name": "Marcus Webb",
+  "company": "TrueNorth Fitness App",
+  "date": "2026-02-03",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "What made you choose 12Labs over building TTS in-house?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Cost and speed. Building an in-house model would've taken our team six months minimum. We had a working coach-voice feature in production in two weeks."
+    },
+    {
+      "speaker": "agent",
+      "text": "Anything that's made you reconsider that choice since?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Not reconsider, but we're watching the pricing closely as our user base grows \u2014 at some point in-house might become cheaper, though quality would probably drop."
+    }
+  ]
+}

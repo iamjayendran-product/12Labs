@@ -1,0 +1,24 @@
+{
+  "id": "call_024",
+  "customer_name": "Diego Fuentes",
+  "company": "Rapidfire Logistics",
+  "date": "2026-03-04",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "How reliable have webhooks been for your async generation jobs?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Mostly reliable, but we've had two incidents in the last quarter where webhook deliveries silently dropped and we only noticed because a customer complained about a missing audio file."
+    },
+    {
+      "speaker": "agent",
+      "text": "How did you work around that?"
+    },
+    {
+      "speaker": "customer",
+      "text": "We built our own polling fallback on top of your webhook system, which really shouldn't be necessary. A retry-with-backoff on your end would fix this for us."
+    }
+  ]
+}

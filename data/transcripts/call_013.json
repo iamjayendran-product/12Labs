@@ -1,0 +1,24 @@
+{
+  "id": "call_013",
+  "customer_name": "Isabelle Moreau",
+  "company": "Chatterbox AI",
+  "date": "2026-02-09",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "You're building a conversational agent product on top of 12Labs \u2014 how's the latency been for that?"
+    },
+    {
+      "speaker": "customer",
+      "text": "It's the number one thing our beta users complain about. There's a noticeable pause before the agent starts speaking, long enough that people start repeating themselves thinking it didn't hear them."
+    },
+    {
+      "speaker": "agent",
+      "text": "Has this affected your launch plans?"
+    },
+    {
+      "speaker": "customer",
+      "text": "We delayed our public launch by a month specifically to wait for a lower-latency streaming tier we were told was coming."
+    }
+  ]
+}

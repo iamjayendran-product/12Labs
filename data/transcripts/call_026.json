@@ -1,0 +1,24 @@
+{
+  "id": "call_026",
+  "customer_name": "Omar Siddiqui",
+  "company": "Crescent Audio Marketplace",
+  "date": "2026-03-08",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "You're using the voice marketplace feature to let creators publish custom voices \u2014 how's adoption been?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Way better than expected. Creators love being able to monetize their cloned voice, and the revenue split terms were clear from day one, no disputes so far."
+    },
+    {
+      "speaker": "agent",
+      "text": "Any friction in that marketplace flow?"
+    },
+    {
+      "speaker": "customer",
+      "text": "The voice review/approval queue before a voice goes public can take up to 5 days, which frustrates creators who want to publish quickly after cloning."
+    }
+  ]
+}

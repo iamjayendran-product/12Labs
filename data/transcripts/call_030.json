@@ -1,0 +1,24 @@
+{
+  "id": "call_030",
+  "customer_name": "Connor Bailey",
+  "company": "Fresco Restaurant Group",
+  "date": "2026-03-16",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "How's the phone ordering voice assistant been received by customers?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Order accuracy is up and hold times are down since we launched it \u2014 genuinely one of the better ROI projects we've run this year."
+    },
+    {
+      "speaker": "agent",
+      "text": "Any customer pushback on talking to an AI?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Surprisingly little. A few older customers ask to be transferred to a human, and we made sure that's a one-word request away, which has kept complaints minimal."
+    }
+  ]
+}

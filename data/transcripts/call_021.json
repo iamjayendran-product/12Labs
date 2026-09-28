@@ -1,0 +1,24 @@
+{
+  "id": "call_021",
+  "customer_name": "Amara Diallo",
+  "company": "Lumen Publishing",
+  "date": "2026-02-25",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "We noticed you downgraded your plan last month \u2014 can you share why?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Budget cuts on our side more than dissatisfaction, honestly. We loved the product but our audiobook division got its budget slashed for the quarter."
+    },
+    {
+      "speaker": "agent",
+      "text": "Anything product-related that contributed?"
+    },
+    {
+      "speaker": "customer",
+      "text": "The character pricing didn't help \u2014 at our old volume it was a meaningful line item, so it was an easy first cut when the budget review happened."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "call_019",
+  "customer_name": "Lena Hoffmann",
+  "company": "Berlin Transit Authority",
+  "date": "2026-02-21",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "How's German language quality for your transit announcements?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Excellent \u2014 this was actually the deciding factor for us over a competitor whose German sounded accented. Riders have not once flagged the announcements as synthetic."
+    },
+    {
+      "speaker": "agent",
+      "text": "Anything you'd want improved specifically for this use case?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Better handling of station names with unusual spellings \u2014 a few of our stations get mispronounced and we've had to add manual overrides."
+    }
+  ]
+}

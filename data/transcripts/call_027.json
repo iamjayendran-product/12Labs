@@ -1,0 +1,24 @@
+{
+  "id": "call_027",
+  "customer_name": "Elena Vasquez",
+  "company": "Meridian Legal Docs",
+  "date": "2026-03-10",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "What made you consider canceling last month?"
+    },
+    {
+      "speaker": "customer",
+      "text": "We hit our rate limit during a compliance deadline crunch and support took over 24 hours to raise it, which nearly caused us to miss a client deliverable. That was a five-alarm moment for us internally."
+    },
+    {
+      "speaker": "agent",
+      "text": "What convinced you to stay?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Your team proactively reached out with a permanent rate limit increase and a partial credit for the incident. That responsiveness bought back a lot of trust, but we're still cautious."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "call_031",
+  "customer_name": "Nadia Petrov",
+  "company": "Skyline Property Management",
+  "date": "2026-03-18",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "What's your take on the invoicing and billing experience overall?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Invoices are clear and itemized, that part's fine. What's annoying is that our account has two different billing contacts and only one of them receives the invoice emails \u2014 support couldn't help us add a second recipient."
+    },
+    {
+      "speaker": "agent",
+      "text": "Did that cause a real problem?"
+    },
+    {
+      "speaker": "customer",
+      "text": "We missed a payment once because of it and got a service pause warning, which was stressful for something that should be a simple settings fix."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "call_033",
+  "customer_name": "Grace Adeyemi",
+  "company": "Lantern Library Services",
+  "date": "2026-03-22",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "How's the experience been generating long-form audiobook content in bulk?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Bulk generation for a 10-hour audiobook took about 40 minutes end to end, which is fast. Quality stayed consistent from chapter 1 to chapter 30, no noticeable drift."
+    },
+    {
+      "speaker": "agent",
+      "text": "Any issues with bulk jobs specifically?"
+    },
+    {
+      "speaker": "customer",
+      "text": "If one chapter fails mid-batch, the whole batch doesn't tell you which chapter failed in the response \u2014 we have to check each output file manually to find the gap."
+    }
+  ]
+}

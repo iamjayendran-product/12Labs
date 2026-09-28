@@ -1,0 +1,24 @@
+{
+  "id": "call_016",
+  "customer_name": "Nate Fischer",
+  "company": "Overdrive Motorsports Media",
+  "date": "2026-02-15",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "How's the API been from a reliability standpoint?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Uptime has been rock solid for us, honestly no complaints there over four months of daily use for race recap narration."
+    },
+    {
+      "speaker": "agent",
+      "text": "Anything else worth flagging?"
+    },
+    {
+      "speaker": "customer",
+      "text": "The rate limits reset unpredictably around midnight UTC rather than a clear rolling window, which caught us off guard during a live event once."
+    }
+  ]
+}

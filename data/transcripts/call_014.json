@@ -1,0 +1,24 @@
+{
+  "id": "call_014",
+  "customer_name": "Samuel Otieno",
+  "company": "Baraza News",
+  "date": "2026-02-11",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "How has voice cloning worked for your use case?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Cloning our lead anchor's voice for automated news summaries took under 10 minutes of sample audio and the result was shockingly close. Listeners genuinely couldn't tell in an internal test."
+    },
+    {
+      "speaker": "agent",
+      "text": "Any concerns about voice cloning as a feature?"
+    },
+    {
+      "speaker": "customer",
+      "text": "We appreciate that you require consent verification before cloning goes live \u2014 that's the right call given how realistic it is. Just wanted to say that's noticed and appreciated."
+    }
+  ]
+}

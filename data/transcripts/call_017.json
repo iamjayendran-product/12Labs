@@ -1,0 +1,24 @@
+{
+  "id": "call_017",
+  "customer_name": "Renee Castillo",
+  "company": "Whisperwind Games",
+  "date": "2026-02-17",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "What features would most improve your workflow?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Emotion tags in the API \u2014 being able to say 'whisper this' or 'shout this' inline instead of generating separate voice presets for each emotional tone. Right now we manage a dozen presets per character."
+    },
+    {
+      "speaker": "agent",
+      "text": "Is that a blocker or a nice-to-have?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Nice-to-have for now, but as our character roster grows it's becoming a real maintenance burden."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "call_032",
+  "customer_name": "Ethan Brooks",
+  "company": "Wavelength Audio Ads",
+  "date": "2026-03-20",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "How does the ad-read voice compare to human voice actors you used before?"
+    },
+    {
+      "speaker": "customer",
+      "text": "For our A/B tests, listeners couldn't reliably tell which ads used AI voice versus a human actor, and conversion rates were statistically identical. That's a huge win for us cost-wise."
+    },
+    {
+      "speaker": "agent",
+      "text": "Anything holding you back from going 100% AI voice for ads?"
+    },
+    {
+      "speaker": "customer",
+      "text": "A couple of our biggest brand clients have policies requiring disclosed human talent for legal/union reasons, so we still keep a human option available for those accounts."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "call_025",
+  "customer_name": "Hannah Whitfield",
+  "company": "Junction Mobile",
+  "date": "2026-03-06",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "How has the mobile SDK been to integrate?"
+    },
+    {
+      "speaker": "customer",
+      "text": "The iOS SDK integrated in about a day, solid experience. The Android SDK, though, is noticeably behind \u2014 missing streaming playback support that the iOS one has had for months."
+    },
+    {
+      "speaker": "agent",
+      "text": "Has that Android gap affected your roadmap?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Yes, we had to push our Android voice-assistant feature to next quarter specifically because of it."
+    }
+  ]
+}

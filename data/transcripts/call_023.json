@@ -1,0 +1,24 @@
+{
+  "id": "call_023",
+  "customer_name": "Rachel Kim",
+  "company": "Vantage Enterprise Systems",
+  "date": "2026-03-02",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "As an enterprise customer, what's been most important to you?"
+    },
+    {
+      "speaker": "customer",
+      "text": "SOC 2 compliance and a signed DPA were non-negotiable for our legal team. 12Labs had both ready to go, which actually sped up our procurement compared to two competitors we evaluated."
+    },
+    {
+      "speaker": "agent",
+      "text": "Anything on the enterprise side that's been a gap?"
+    },
+    {
+      "speaker": "customer",
+      "text": "SSO/SAML took an extra round of back-and-forth with your team to configure correctly \u2014 the self-serve docs for SSO setup are thinner than the rest of the docs."
+    }
+  ]
+}

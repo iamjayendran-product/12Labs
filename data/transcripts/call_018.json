@@ -1,0 +1,24 @@
+{
+  "id": "call_018",
+  "customer_name": "Oliver Nkemelu",
+  "company": "Freshline Grocery",
+  "date": "2026-02-19",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "Why did you switch from your previous TTS provider?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Voice quality mainly \u2014 our previous provider sounded dated and customers noticed. Also your API was easier to integrate, fewer required parameters to get a working call."
+    },
+    {
+      "speaker": "agent",
+      "text": "Any regrets about switching?"
+    },
+    {
+      "speaker": "customer",
+      "text": "None on quality. Slight regret that migrating our existing voice presets wasn't automated \u2014 we had to manually recreate about 15 custom voices."
+    }
+  ]
+}

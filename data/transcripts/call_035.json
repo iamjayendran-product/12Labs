@@ -1,0 +1,24 @@
+{
+  "id": "call_035",
+  "customer_name": "Ji-woo Park",
+  "company": "Hanbit Streaming",
+  "date": "2026-03-26",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "How's Korean language voice quality for your streaming platform?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Genuinely impressive \u2014 natural intonation, handles honorifics correctly most of the time, which a lot of competitors get wrong entirely."
+    },
+    {
+      "speaker": "agent",
+      "text": "Any remaining rough edges in Korean?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Occasional stress/emphasis on the wrong syllable in compound words, but it's rare enough that we don't manually review every output anymore, just spot checks."
+    }
+  ]
+}

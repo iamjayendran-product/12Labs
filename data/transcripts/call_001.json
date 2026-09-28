@@ -1,0 +1,24 @@
+{
+  "id": "call_001",
+  "customer_name": "Maria Chen",
+  "company": "Northwind Media",
+  "date": "2026-01-14",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "Thanks for taking the time, Maria. How has the voice quality been for your podcast narration workflow?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Honestly, it's the best synthetic voice I've used. Our listeners can't tell it's AI-generated. The emotional inflection on longer sentences is what sold us."
+    },
+    {
+      "speaker": "agent",
+      "text": "Any rough edges with voice quality on certain content types?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Technical jargon trips it up sometimes \u2014 acronyms get mispronounced. We've had to add a pronunciation dictionary manually, which took a couple hours to get right."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "call_007",
+  "customer_name": "Sofia Lindqvist",
+  "company": "Nordic Voice Agency",
+  "date": "2026-01-27",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "How do you feel about the voice quality compared to competitors you've tried?"
+    },
+    {
+      "speaker": "customer",
+      "text": "We benchmarked against two other providers and 12Labs won on naturalness, no contest. The breathing and pacing sound human. Competitors sound noticeably more robotic on longer passages."
+    },
+    {
+      "speaker": "agent",
+      "text": "Any weaknesses relative to competitors?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Language support \u2014 we need Swedish and Finnish for Nordic clients, and both are still labeled 'beta' with noticeably lower quality than English."
+    }
+  ]
+}

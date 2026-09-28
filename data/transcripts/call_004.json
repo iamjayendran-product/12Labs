@@ -1,0 +1,24 @@
+{
+  "id": "call_004",
+  "customer_name": "Tomasz Wolniak",
+  "company": "Fenwick Games",
+  "date": "2026-01-20",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "Tell me about your experience with pricing."
+    },
+    {
+      "speaker": "customer",
+      "text": "We're on the Growth tier and it's fine for prototyping, but the character-based pricing gets expensive fast once we're generating in-game dialogue at scale. We ran a budget projection and it's 3x what we expected for full production volume."
+    },
+    {
+      "speaker": "agent",
+      "text": "Would a different pricing model help?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Volume discounts past a certain threshold, or a flat monthly tier for high-usage studios, would make this a much easier internal pitch to our finance team."
+    }
+  ]
+}
