@@ -1,0 +1,47 @@
+{
+  "id": "ff_010",
+  "title": "Fenwick: engine integration workshop",
+  "date": "2026-09-09",
+  "account": "Fenwick Games",
+  "attendees": [
+    "Tomasz Wolniak (Fenwick)",
+    "Aiko Sato (Fenwick Audio)",
+    "Priya Raman (12Labs)"
+  ],
+  "sentences": [
+    {
+      "speaker": "Tomasz Wolniak",
+      "start_s": 0.0,
+      "text": "Our engineers are wrapping the REST API by hand inside Unity every sprint."
+    },
+    {
+      "speaker": "Aiko Sato",
+      "start_s": 11.3,
+      "text": "A native Unity plugin would cut that, and an Unreal one is next on our list."
+    },
+    {
+      "speaker": "Aiko Sato",
+      "start_s": 22.7,
+      "text": "Our other pain is pronunciation. Fantasy names get mangled, and we re-record constantly."
+    },
+    {
+      "speaker": "Priya Raman",
+      "start_s": 35.0,
+      "text": "A pronunciation dictionary would fix that class of problem."
+    },
+    {
+      "speaker": "Tomasz Wolniak",
+      "start_s": 45.2,
+      "text": "Yes. Add words once, and every voice respects them."
+    },
+    {
+      "speaker": "Priya Raman",
+      "start_s": 54.9,
+      "text": "I will write both asks up for product."
+    }
+  ],
+  "summary": "Fenwick wants a native Unity plugin (Unreal next) and a pronunciation dictionary for character names. No contract date.",
+  "action_items": [
+    "Priya to write up Unity plugin and pronunciation dictionary asks"
+  ]
+}

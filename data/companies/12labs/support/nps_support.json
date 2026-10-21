@@ -1,0 +1,338 @@
+[
+  {
+    "id": "sup_001",
+    "account": "Junction Mobile",
+    "date": "2026-04-03",
+    "channel": "support",
+    "score": null,
+    "text": "Android SDK crashes when streaming is attempted. Docs say iOS only. Is Android streaming on the roadmap?"
+  },
+  {
+    "id": "sup_002",
+    "account": "Hanbit Streaming",
+    "date": "2026-04-08",
+    "channel": "nps",
+    "score": 6,
+    "text": "Voices are lovely but latency is far too high for live use. Please fix."
+  },
+  {
+    "id": "sup_003",
+    "account": "Chatterbox AI",
+    "date": "2026-04-14",
+    "channel": "nps",
+    "score": 5,
+    "text": "Time to first byte is the whole product for us. Too slow."
+  },
+  {
+    "id": "sup_004",
+    "account": "Clearline Support Co.",
+    "date": "2026-04-19",
+    "channel": "support",
+    "score": null,
+    "text": "P1 ticket opened at 02:10, no reply until 11:30. We need a real support response time guarantee."
+  },
+  {
+    "id": "sup_005",
+    "account": "Fenwick Games",
+    "date": "2026-04-25",
+    "channel": "community",
+    "score": null,
+    "text": "Anyone know a trick to make the TTS say 'Aethelwyn' correctly? Pronunciation keeps drifting between generations."
+  },
+  {
+    "id": "sup_006",
+    "account": "Lumen Publishing",
+    "date": "2026-05-02",
+    "channel": "nps",
+    "score": 7,
+    "text": "Great voices. We spend hours re-recording because author names are mispronounced. Need a pronunciation dictionary."
+  },
+  {
+    "id": "sup_007",
+    "account": "Zenith Translation Services",
+    "date": "2026-05-05",
+    "channel": "nps",
+    "score": 7,
+    "text": "No Hindi voices yet which is a problem for our largest region."
+  },
+  {
+    "id": "sup_008",
+    "account": "Rapidfire Logistics",
+    "date": "2026-05-09",
+    "channel": "support",
+    "score": null,
+    "text": "Webhook for job completion did not fire for 3 jobs. No retry, no log. How do we recover?"
+  },
+  {
+    "id": "sup_009",
+    "account": "Northwind Media",
+    "date": "2026-05-13",
+    "channel": "nps",
+    "score": 8,
+    "text": "Would give a 10 if I could see a usage dashboard. Finance keeps asking how many minutes each project used."
+  },
+  {
+    "id": "sup_010",
+    "account": "Nightshift Podcast Network",
+    "date": "2026-05-18",
+    "channel": "nps",
+    "score": 6,
+    "text": "Flat plan is wasteful for a small show. Want pay-as-you-go per-minute pricing."
+  },
+  {
+    "id": "sup_011",
+    "account": "Whisperwind Games",
+    "date": "2026-05-22",
+    "channel": "community",
+    "score": null,
+    "text": "Is there a Unity plugin? We are hand-wrapping the HTTP calls and it is tedious."
+  },
+  {
+    "id": "sup_012",
+    "account": "Meridian Legal Docs",
+    "date": "2026-05-27",
+    "channel": "support",
+    "score": null,
+    "text": "Our IT team needs SAML SSO via Okta before more attorneys can be added."
+  },
+  {
+    "id": "sup_013",
+    "account": "Beacon Arabic Media",
+    "date": "2026-05-31",
+    "channel": "nps",
+    "score": 6,
+    "text": "Arabic voices sound robotic. We need a natural Gulf dialect."
+  },
+  {
+    "id": "sup_014",
+    "account": "Wavelength Audio Ads",
+    "date": "2026-06-04",
+    "channel": "support",
+    "score": null,
+    "text": "Client asked for proof the voice talent consented to being cloned. Do you have a consent record feature?"
+  },
+  {
+    "id": "sup_015",
+    "account": "Berlin Transit Authority",
+    "date": "2026-06-09",
+    "channel": "support",
+    "score": null,
+    "text": "Latency spiked to nearly a second during the evening peak on the EU endpoint."
+  },
+  {
+    "id": "sup_016",
+    "account": "Insight Analytics",
+    "date": "2026-06-13",
+    "channel": "nps",
+    "score": 8,
+    "text": "Want a usage API to pull minutes and cost into our BI tool. Webhook failures are also invisible."
+  },
+  {
+    "id": "sup_017",
+    "account": "Solace Health",
+    "date": "2026-06-18",
+    "channel": "support",
+    "score": null,
+    "text": "Security questionnaire flagged multi-tenant hosting. Is a VPC or private cloud deployment available?"
+  },
+  {
+    "id": "sup_018",
+    "account": "Riverside Audiobooks",
+    "date": "2026-06-23",
+    "channel": "nps",
+    "score": 7,
+    "text": "Narrators now want signed voice clone consent. Also pronunciation fixes should persist across books."
+  },
+  {
+    "id": "sup_019",
+    "account": "Freshline Grocery",
+    "date": "2026-06-27",
+    "channel": "nps",
+    "score": 5,
+    "text": "We pay the same flat fee for tiny volume. Usage-based pricing please. Also, our order-ready webhooks sometimes vanish."
+  },
+  {
+    "id": "sup_020",
+    "account": "TrueNorth Fitness App",
+    "date": "2026-07-02",
+    "channel": "support",
+    "score": null,
+    "text": "Streaming audio does not work on Android. We pre-render everything, which is slow."
+  },
+  {
+    "id": "sup_021",
+    "account": "Turnstile Ticketing",
+    "date": "2026-07-07",
+    "channel": "support",
+    "score": null,
+    "text": "Friday night on-sale broke and the ticket sat in the queue for hours. Need a response SLA for events."
+  },
+  {
+    "id": "sup_022",
+    "account": "Vantage Enterprise Systems",
+    "date": "2026-07-11",
+    "channel": "nps",
+    "score": 6,
+    "text": "No SSO and SOC 2 Type II is still pending. This blocks our expansion."
+  },
+  {
+    "id": "sup_023",
+    "account": "Skyline Property Management",
+    "date": "2026-07-15",
+    "channel": "support",
+    "score": null,
+    "text": "Need a usage report split by property for cost allocation. Support replied after four days."
+  },
+  {
+    "id": "sup_024",
+    "account": "Bright Path Learning",
+    "date": "2026-07-20",
+    "channel": "nps",
+    "score": 7,
+    "text": "Hindi voices would unlock the school pilot. Budget requires pay-as-you-go pricing."
+  },
+  {
+    "id": "sup_025",
+    "account": "StudyBuddy EdTech",
+    "date": "2026-07-24",
+    "channel": "nps",
+    "score": 7,
+    "text": "Price scales badly for a student app. Want per-minute billing with overage caps."
+  },
+  {
+    "id": "sup_026",
+    "account": "Pixelforge Studio",
+    "date": "2026-07-29",
+    "channel": "community",
+    "score": null,
+    "text": "Looking for an Unreal Engine plugin. Is there one planned?"
+  },
+  {
+    "id": "sup_027",
+    "account": "Ironclad Security Training",
+    "date": "2026-08-03",
+    "channel": "support",
+    "score": null,
+    "text": "Our customers ask for SSO and SOC 2 evidence from sub-processors. Where is your report?"
+  },
+  {
+    "id": "sup_028",
+    "account": "Lantern Library Services",
+    "date": "2026-08-08",
+    "channel": "nps",
+    "score": 8,
+    "text": "Pronunciation of author surnames is hit and miss. A lexicon would help a lot."
+  },
+  {
+    "id": "sup_029",
+    "account": "Fresco Restaurant Group",
+    "date": "2026-08-12",
+    "channel": "nps",
+    "score": 5,
+    "text": "Callers hang up during the pause before the voice answers. Latency is hurting phone orders."
+  },
+  {
+    "id": "sup_030",
+    "account": "Alpine Trail Guides",
+    "date": "2026-08-17",
+    "channel": "support",
+    "score": null,
+    "text": "Android streaming for offline-first guides? Also entry pricing is high for a seasonal business."
+  },
+  {
+    "id": "sup_031",
+    "account": "Baraza News",
+    "date": "2026-08-22",
+    "channel": "nps",
+    "score": 8,
+    "text": "Swahili would be great. Arabic could be a second wish."
+  },
+  {
+    "id": "sup_032",
+    "account": "Legacy Radio Network",
+    "date": "2026-08-26",
+    "channel": "nps",
+    "score": 8,
+    "text": "Would like a broadcast-grade MP3 export. Could we run it on-prem inside the studio?"
+  },
+  {
+    "id": "sup_033",
+    "account": "Clearline Support Co.",
+    "date": "2026-08-31",
+    "channel": "nps",
+    "score": 5,
+    "text": "Webhooks silently dropped again. Retries and a delivery log are overdue."
+  },
+  {
+    "id": "sup_034",
+    "account": "Hanbit Streaming",
+    "date": "2026-09-05",
+    "channel": "support",
+    "score": null,
+    "text": "Benchmark shows time to first byte of about 650 ms in Seoul. Needs to be under 300."
+  },
+  {
+    "id": "sup_035",
+    "account": "Northwind Media",
+    "date": "2026-09-10",
+    "channel": "community",
+    "score": null,
+    "text": "Feature request: usage analytics with per-project breakdown and CSV export."
+  },
+  {
+    "id": "sup_036",
+    "account": "Wavelength Audio Ads",
+    "date": "2026-09-14",
+    "channel": "nps",
+    "score": 7,
+    "text": "Usage analytics by campaign would make billing clients simpler."
+  },
+  {
+    "id": "sup_037",
+    "account": "Zenith Translation Services",
+    "date": "2026-09-19",
+    "channel": "support",
+    "score": null,
+    "text": "Pronunciation dictionary for product names across all voices, please. Also still waiting on Hindi."
+  },
+  {
+    "id": "sup_038",
+    "account": "Rapidfire Logistics",
+    "date": "2026-09-23",
+    "channel": "nps",
+    "score": 6,
+    "text": "Webhook signing secrets and retries with backoff are must-haves for dispatch."
+  },
+  {
+    "id": "sup_039",
+    "account": "Whisperwind Games",
+    "date": "2026-09-28",
+    "channel": "nps",
+    "score": 7,
+    "text": "Voice actors worry about cloning. A consent workflow that records permission would help."
+  },
+  {
+    "id": "sup_040",
+    "account": "Lantern Library Services",
+    "date": "2026-10-03",
+    "channel": "community",
+    "score": null,
+    "text": "Nice to have: dark mode in the dashboard."
+  },
+  {
+    "id": "sup_041",
+    "account": "Fresco Restaurant Group",
+    "date": "2026-10-08",
+    "channel": "support",
+    "score": null,
+    "text": "Can you build a Salesforce connector? Not urgent."
+  },
+  {
+    "id": "sup_042",
+    "account": "Berlin Transit Authority",
+    "date": "2026-10-14",
+    "channel": "nps",
+    "score": 7,
+    "text": "Still waiting on sub-300 ms latency and a Germany-resident deployment option."
+  }
+]

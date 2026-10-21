@@ -1,0 +1,1551 @@
+{
+  "company": "12labs",
+  "derived_at": "2026-10-21T11:26:36Z",
+  "items": [
+    {
+      "id": "sso-soc2",
+      "title": "SAML SSO and SOC 2 Type II",
+      "problem": "Enterprise buyers will not add a vendor that sits outside their identity provider or lacks a SOC 2 Type II report; Vantage's 300k expansion is gated on both, and three more security-led prospects stalled on the same ask.",
+      "squad": "growth",
+      "theme": "Enterprise readiness",
+      "evidence": [
+        {
+          "source": "crm",
+          "record_id": "crm_001",
+          "account": "Vantage Enterprise Systems",
+          "quote": "no SAML SSO and no SOC 2 Type II report, no expansion"
+        },
+        {
+          "source": "fireflies",
+          "record_id": "ff_001",
+          "account": "Vantage Enterprise Systems",
+          "quote": "We need SAML single sign-on through Okta, with SCIM provisioning if possible."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_022",
+          "account": "Vantage Enterprise Systems",
+          "quote": "No SSO and SOC 2 Type II is still pending. This blocks our expansion."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_023",
+          "account": "Vantage Enterprise Systems",
+          "quote": "SSO/SAML took an extra round of back-and-forth with your team to configure correctly"
+        },
+        {
+          "source": "support",
+          "record_id": "sup_012",
+          "account": "Meridian Legal Docs",
+          "quote": "Our IT team needs SAML SSO via Okta before more attorneys can be added."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_044",
+          "account": "Quill Legal Tech",
+          "quote": "SAML SSO. Our clients' security teams will not allow another password. SOC 2 report as well."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_050",
+          "account": "Compass Finance Bank",
+          "quote": "SOC 2 Type II, SAML SSO, and a VPC deployment in our own cloud account."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_037",
+          "account": "Pulse Telehealth",
+          "quote": "We need SOC 2 Type II and ideally a private VPC deployment"
+        },
+        {
+          "source": "support",
+          "record_id": "sup_027",
+          "account": "Ironclad Security Training",
+          "quote": "Our customers ask for SSO and SOC 2 evidence from sub-processors."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_022",
+          "account": "Ironclad Security Training",
+          "quote": "SSO required by their own customers' security review."
+        },
+        {
+          "source": "commitment",
+          "record_id": "com_001",
+          "account": "Vantage Enterprise Systems",
+          "quote": "Deliver SAML SSO and a SOC 2 Type II report to Vantage."
+        }
+      ],
+      "suggested": {
+        "impact": 3,
+        "confidence": 0.8,
+        "effort_pw": 10,
+        "rationale": "Largest single ARR at stake (480k plus 300k expansion) and recurs in 6 accounts. SAML+SCIM is well-understood; Type II audit window is calendar-bound, not engineering-bound."
+      },
+      "depends_on": [],
+      "commitment_id": "com_001"
+    },
+    {
+      "id": "support-sla",
+      "title": "P1 support response SLA and priority queue",
+      "problem": "A nine-hour first reply during an outage cost Clearline trust; several accounts now ask for a written response-time commitment and free-tier delays make evaluators doubt paid support.",
+      "squad": "growth",
+      "theme": "Enterprise readiness",
+      "evidence": [
+        {
+          "source": "fireflies",
+          "record_id": "ff_006",
+          "account": "Clearline Support Co.",
+          "quote": "We need a written SLA. One hour response on P1, in the contract."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_004",
+          "account": "Clearline Support Co.",
+          "quote": "P1 ticket opened at 02:10, no reply until 11:30. We need a real support response time guarantee."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_008",
+          "account": "Clearline Support Co.",
+          "quote": "They want a written support SLA with a 1 hour response on P1 tickets."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_024",
+          "account": "Turnstile Ticketing",
+          "quote": "Guaranteed support response time during events."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_021",
+          "account": "Turnstile Ticketing",
+          "quote": "Friday night on-sale broke and the ticket sat in the queue for hours. Need a response SLA for events."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_040",
+          "account": "Harbor Call Center",
+          "quote": "We need a support SLA, an hour for P1."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_047",
+          "account": "Delta Dispatch",
+          "quote": "A support response time commitment would calm our operations team."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_027",
+          "account": "Meridian Legal Docs",
+          "quote": "support took over 24 hours to raise it"
+        },
+        {
+          "source": "support",
+          "record_id": "sup_023",
+          "account": "Skyline Property Management",
+          "quote": "Support replied after four days."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_015",
+          "account": "StudyBuddy EdTech",
+          "quote": "support response has been slow"
+        },
+        {
+          "source": "commitment",
+          "record_id": "com_002",
+          "account": "Clearline Support Co.",
+          "quote": "Contractual 1-hour P1 support response SLA."
+        }
+      ],
+      "suggested": {
+        "impact": 2,
+        "confidence": 1.0,
+        "effort_pw": 4,
+        "rationale": "Mostly process and tooling (P1 queue, paging rota) rather than product code; high confidence it fixes the stated complaint."
+      },
+      "depends_on": [],
+      "commitment_id": "com_002"
+    },
+    {
+      "id": "android-sdk",
+      "title": "Android SDK streaming parity with iOS",
+      "problem": "The Android SDK has no streaming playback, so Android-heavy customers pre-render audio or delay features; Junction renewed on a promise of parity.",
+      "squad": "platform-sdk",
+      "theme": "Developer platform",
+      "evidence": [
+        {
+          "source": "voc",
+          "record_id": "call_025",
+          "account": "Junction Mobile",
+          "quote": "The Android SDK, though, is noticeably behind"
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_006",
+          "account": "Junction Mobile",
+          "quote": "Android SDK with streaming playback parity with iOS."
+        },
+        {
+          "source": "fireflies",
+          "record_id": "ff_005",
+          "account": "Junction Mobile",
+          "quote": "The Android SDK still has no streaming playback. iOS has had it for most of a year."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_001",
+          "account": "Junction Mobile",
+          "quote": "Android SDK crashes when streaming is attempted."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_020",
+          "account": "TrueNorth Fitness App",
+          "quote": "Streaming audio does not work on Android. We pre-render everything, which is slow."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_043",
+          "account": "Atlas Fleet Apps",
+          "quote": "Half of our drivers are on Android and your Android SDK cannot stream."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_025",
+          "account": "TrueNorth Fitness App",
+          "quote": "Half their users are on Android."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_030",
+          "account": "Alpine Trail Guides",
+          "quote": "Android streaming for offline-first guides?"
+        },
+        {
+          "source": "commitment",
+          "record_id": "com_003",
+          "account": "Junction Mobile",
+          "quote": "Ship Android SDK with streaming playback parity with iOS."
+        }
+      ],
+      "suggested": {
+        "impact": 2,
+        "confidence": 0.8,
+        "effort_pw": 12,
+        "rationale": "Five accounts plus a renewal commitment; iOS implementation is a reference so scope is known."
+      },
+      "depends_on": [],
+      "commitment_id": "com_003"
+    },
+    {
+      "id": "arabic-voices",
+      "title": "Natural Modern Standard and Gulf-dialect Arabic voices",
+      "problem": "Existing Arabic voices sound robotic and diacritics are handled inconsistently; Beacon's three-year deal is conditional on both MSA and Gulf-dialect voices.",
+      "squad": "voice-quality",
+      "theme": "Voice quality & languages",
+      "evidence": [
+        {
+          "source": "crm",
+          "record_id": "crm_005",
+          "account": "Beacon Arabic Media",
+          "quote": "Gulf dialect voice is the deciding factor for the three-year deal"
+        },
+        {
+          "source": "fireflies",
+          "record_id": "ff_004",
+          "account": "Beacon Arabic Media",
+          "quote": "Gulf dialect for features, and clean Modern Standard Arabic for news bulletins."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_013",
+          "account": "Beacon Arabic Media",
+          "quote": "Arabic voices sound robotic. We need a natural Gulf dialect."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_029",
+          "account": "Beacon Arabic Media",
+          "quote": "diacritics handling is inconsistent"
+        },
+        {
+          "source": "support",
+          "record_id": "sup_031",
+          "account": "Baraza News",
+          "quote": "Arabic could be a second wish."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_051",
+          "account": "Vega Robotics",
+          "quote": "then Arabic for Gulf plants"
+        },
+        {
+          "source": "commitment",
+          "record_id": "com_004",
+          "account": "Beacon Arabic Media",
+          "quote": "Deliver Modern Standard and Gulf-dialect Arabic voices."
+        }
+      ],
+      "suggested": {
+        "impact": 2,
+        "confidence": 0.8,
+        "effort_pw": 14,
+        "rationale": "One large account plus two weaker signals; dialect data collection and diacritic handling are the unknowns, hence 14 pw."
+      },
+      "depends_on": [],
+      "commitment_id": "com_004"
+    },
+    {
+      "id": "vpc-deployment",
+      "title": "VPC / private-cloud deployment",
+      "problem": "Healthcare, banking and public-sector buyers cannot send audio through a shared multi-tenant endpoint; Solace's renewal is gated on a HIPAA-ready VPC deployment by mid-March.",
+      "squad": "platform-sdk",
+      "theme": "Enterprise readiness",
+      "evidence": [
+        {
+          "source": "fireflies",
+          "record_id": "ff_002",
+          "account": "Solace Health",
+          "quote": "We need a VPC deployment in our own cloud account, with keys we control."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_002",
+          "account": "Solace Health",
+          "quote": "Legal wants a VPC deployment with a BAA."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_017",
+          "account": "Solace Health",
+          "quote": "Is a VPC or private cloud deployment available?"
+        },
+        {
+          "source": "voc",
+          "record_id": "call_037",
+          "account": "Pulse Telehealth",
+          "quote": "Only if it is in our cloud account. HIPAA review is strict."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_050",
+          "account": "Compass Finance Bank",
+          "quote": "We would pay a premium for private cloud."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_049",
+          "account": "Nimbus Cloud Telephony",
+          "quote": "Some carriers want it on-prem or in a private cloud."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_051",
+          "account": "Vega Robotics",
+          "quote": "An on-prem or private cloud installation is the only way we could use you."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_003",
+          "account": "Berlin Transit Authority",
+          "quote": "They also asked whether an on-prem or private cloud install is possible because of data residency rules."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_042",
+          "account": "Berlin Transit Authority",
+          "quote": "a Germany-resident deployment option"
+        },
+        {
+          "source": "support",
+          "record_id": "sup_032",
+          "account": "Legacy Radio Network",
+          "quote": "Could we run it on-prem inside the studio?"
+        },
+        {
+          "source": "commitment",
+          "record_id": "com_005",
+          "account": "Solace Health",
+          "quote": "Offer VPC deployment with BAA for HIPAA workloads."
+        }
+      ],
+      "suggested": {
+        "impact": 3,
+        "confidence": 0.5,
+        "effort_pw": 20,
+        "rationale": "Seven accounts and 360k committed, but this is new architecture; low confidence on effort, so it is oversized and spans two months."
+      },
+      "depends_on": [],
+      "commitment_id": "com_005"
+    },
+    {
+      "id": "webhook-reliability",
+      "title": "Reliable webhooks: retries, signing, delivery log",
+      "problem": "Failed webhooks are dropped silently with no retry or log, so customers find out from their own users; Rapidfire's renewal carries a credit if guarantees are not live by end of March.",
+      "squad": "platform-sdk",
+      "theme": "Developer platform",
+      "evidence": [
+        {
+          "source": "fireflies",
+          "record_id": "ff_009",
+          "account": "Rapidfire Logistics",
+          "quote": "We need retries with backoff, signed payloads, and a log we can search."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_010",
+          "account": "Rapidfire Logistics",
+          "quote": "Need retries with backoff, signing secrets and a delivery log."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_024",
+          "account": "Rapidfire Logistics",
+          "quote": "A retry-with-backoff on your end would fix this for us."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_008",
+          "account": "Rapidfire Logistics",
+          "quote": "Webhook for job completion did not fire for 3 jobs. No retry, no log."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_033",
+          "account": "Clearline Support Co.",
+          "quote": "Webhooks silently dropped again."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_038",
+          "account": "Rapidfire Logistics",
+          "quote": "Webhook signing secrets and retries with backoff are must-haves for dispatch."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_047",
+          "account": "Delta Dispatch",
+          "quote": "They fail without a retry. We need retries and a delivery log or we will poll instead."
+        },
+        {
+          "source": "fireflies",
+          "record_id": "ff_006",
+          "account": "Clearline Support Co.",
+          "quote": "We found out from our customers, not from you."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_016",
+          "account": "Insight Analytics",
+          "quote": "Webhook failures are also invisible."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_019",
+          "account": "Freshline Grocery",
+          "quote": "our order-ready webhooks sometimes vanish."
+        },
+        {
+          "source": "commitment",
+          "record_id": "com_006",
+          "account": "Rapidfire Logistics",
+          "quote": "Webhook delivery guarantees: retries, signing, delivery log."
+        }
+      ],
+      "suggested": {
+        "impact": 2,
+        "confidence": 1.0,
+        "effort_pw": 6,
+        "rationale": "Six accounts independently describe the same fix; standard queue-with-backoff pattern."
+      },
+      "depends_on": [],
+      "commitment_id": "com_006"
+    },
+    {
+      "id": "streaming-latency",
+      "title": "Sub-300 ms time-to-first-byte streaming tier",
+      "problem": "Real-time voice agents, live dubbing and phone ordering need first audio under 300 ms; measured 600-1200 ms today. Chatterbox already delayed its launch waiting for a promised low-latency tier.",
+      "squad": "voice-quality",
+      "theme": "Voice quality & languages",
+      "evidence": [
+        {
+          "source": "voc",
+          "record_id": "call_002",
+          "account": "Latency Labs (ironic, I know)",
+          "quote": "our use case needs sub-300ms to feel conversational."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_013",
+          "account": "Chatterbox AI",
+          "quote": "We delayed our public launch by a month specifically to wait for a lower-latency streaming tier we were told was coming."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_020",
+          "account": "Insight Analytics",
+          "quote": "Ship the low-latency streaming tier and a volume pricing plan"
+        },
+        {
+          "source": "voc",
+          "record_id": "call_040",
+          "account": "Harbor Call Center",
+          "quote": "Latency over 300 milliseconds feels like a dropped call to customers."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_045",
+          "account": "Echo Dubbing Studio",
+          "quote": "we need to go below three hundred milliseconds."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_049",
+          "account": "Nimbus Cloud Telephony",
+          "quote": "We measure latency at 600 milliseconds."
+        },
+        {
+          "source": "fireflies",
+          "record_id": "ff_003",
+          "account": "Berlin Transit Authority",
+          "quote": "That is too slow. Passengers are already walking away by the time the voice starts."
+        },
+        {
+          "source": "fireflies",
+          "record_id": "ff_007",
+          "account": "Hanbit Streaming",
+          "quote": "Then we can't go live."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_002",
+          "account": "Hanbit Streaming",
+          "quote": "latency is far too high for live use"
+        },
+        {
+          "source": "support",
+          "record_id": "sup_003",
+          "account": "Chatterbox AI",
+          "quote": "Time to first byte is the whole product for us."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_015",
+          "account": "Berlin Transit Authority",
+          "quote": "Latency spiked to nearly a second during the evening peak on the EU endpoint."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_029",
+          "account": "Fresco Restaurant Group",
+          "quote": "Latency is hurting phone orders."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_034",
+          "account": "Hanbit Streaming",
+          "quote": "Benchmark shows time to first byte of about 650 ms in Seoul."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_027",
+          "account": "Chatterbox AI",
+          "quote": "Says anything over 300 ms to first audio breaks conversation flow."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_030",
+          "account": "Fresco Restaurant Group",
+          "quote": "Latency has to come down for phone ordering."
+        }
+      ],
+      "suggested": {
+        "impact": 3,
+        "confidence": 0.8,
+        "effort_pw": 20,
+        "rationale": "Widest demand in the data (12+ accounts across every source) and the most-cited blocker for real-time use cases. Needs infra plus regional endpoints, so oversized."
+      },
+      "depends_on": [],
+      "commitment_id": null
+    },
+    {
+      "id": "hindi-voices",
+      "title": "Hindi voices",
+      "problem": "No Hindi voice blocks India-based accounts, a school pilot and an IVR replacement.",
+      "squad": "voice-quality",
+      "theme": "Voice quality & languages",
+      "evidence": [
+        {
+          "source": "crm",
+          "record_id": "crm_009",
+          "account": "Zenith Translation Services",
+          "quote": "Translation agency needs Hindi urgently, 40 percent of their pipeline."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_020",
+          "account": "Bright Path Learning",
+          "quote": "Schools in India want Hindi narration."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_023",
+          "account": "StudyBuddy EdTech",
+          "quote": "Wants Hindi and a pay-as-you-go option"
+        },
+        {
+          "source": "support",
+          "record_id": "sup_007",
+          "account": "Zenith Translation Services",
+          "quote": "No Hindi voices yet which is a problem for our largest region."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_024",
+          "account": "Bright Path Learning",
+          "quote": "Hindi voices would unlock the school pilot."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_038",
+          "account": "Kite Education",
+          "quote": "Hindi first. Our largest user base is in India"
+        },
+        {
+          "source": "voc",
+          "record_id": "call_046",
+          "account": "Saffron Foods",
+          "quote": "Hindi voice is a must for our IVR"
+        },
+        {
+          "source": "voc",
+          "record_id": "call_051",
+          "account": "Vega Robotics",
+          "quote": "Japanese and Hindi first"
+        },
+        {
+          "source": "support",
+          "record_id": "sup_037",
+          "account": "Zenith Translation Services",
+          "quote": "Also still waiting on Hindi."
+        }
+      ],
+      "suggested": {
+        "impact": 2,
+        "confidence": 0.8,
+        "effort_pw": 12,
+        "rationale": "Eight accounts, mostly small-to-mid ARR; shares data and tooling with the Arabic work."
+      },
+      "depends_on": [],
+      "commitment_id": null
+    },
+    {
+      "id": "usage-analytics-dashboard",
+      "title": "Usage analytics dashboard and API",
+      "problem": "Customers cannot see minutes used per project, campaign, property or program, so finance rebuilds reports by hand; the existing usage view also lags billing by a day.",
+      "squad": "growth",
+      "theme": "Pricing & insights",
+      "evidence": [
+        {
+          "source": "crm",
+          "record_id": "crm_004",
+          "account": "Northwind Media",
+          "quote": "Wants a usage dashboard with per-project breakdown and CSV export."
+        },
+        {
+          "source": "fireflies",
+          "record_id": "ff_008",
+          "account": "Northwind Media",
+          "quote": "Per-project breakdown, CSV export, and a monthly email."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_009",
+          "account": "Northwind Media",
+          "quote": "Finance keeps asking how many minutes each project used."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_035",
+          "account": "Northwind Media",
+          "quote": "usage analytics with per-project breakdown and CSV export"
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_012",
+          "account": "Insight Analytics",
+          "quote": "they would pay more for a usage report API"
+        },
+        {
+          "source": "support",
+          "record_id": "sup_016",
+          "account": "Insight Analytics",
+          "quote": "Want a usage API to pull minutes and cost into our BI tool."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_018",
+          "account": "Wavelength Audio Ads",
+          "quote": "Agency bills clients by campaign and has no per-campaign usage report."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_036",
+          "account": "Wavelength Audio Ads",
+          "quote": "Usage analytics by campaign would make billing clients simpler."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_041",
+          "account": "Tidal Podcasts",
+          "quote": "A usage dashboard. I cannot tell which show uses how many minutes."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_048",
+          "account": "Grove Wellness",
+          "quote": "An analytics dashboard to see minutes used by program."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_012",
+          "account": "Legacy Radio Network",
+          "quote": "The usage dashboard lags behind actual billing by about a day"
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_026",
+          "account": "Skyline Property Management",
+          "quote": "They also need to split usage by property for cost allocation."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_023",
+          "account": "Skyline Property Management",
+          "quote": "Need a usage report split by property for cost allocation."
+        }
+      ],
+      "suggested": {
+        "impact": 2,
+        "confidence": 0.8,
+        "effort_pw": 10,
+        "rationale": "Ten accounts including Northwind (275k), who tie expansion to it; metering data already exists for billing. Also unblocks usage-based pricing."
+      },
+      "depends_on": [],
+      "commitment_id": null
+    },
+    {
+      "id": "usage-based-pricing",
+      "title": "Usage-based (pay-as-you-go) pricing tier",
+      "problem": "The flat seat plan is wrong for spiky or small workloads; prospects want per-minute billing with overage caps and cost that scales with usage.",
+      "squad": "growth",
+      "theme": "Pricing & insights",
+      "evidence": [
+        {
+          "source": "crm",
+          "record_id": "crm_007",
+          "account": "Hanbit Streaming",
+          "quote": "pay-as-you-go per-minute pricing would let them start immediately"
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_019",
+          "account": "Nightshift Podcast Network",
+          "quote": "A per-minute pay-as-you-go tier plus a usage dashboard would close this next week."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_020",
+          "account": "Bright Path Learning",
+          "quote": "usage-based billing with overage caps is a must"
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_023",
+          "account": "StudyBuddy EdTech",
+          "quote": "pay-as-you-go option so cost scales with active students"
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_027",
+          "account": "Chatterbox AI",
+          "quote": "Also prefers pay-as-you-go."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_029",
+          "account": "Freshline Grocery",
+          "quote": "want usage-based pricing"
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_032",
+          "account": "Alpine Trail Guides",
+          "quote": "pay-as-you-go would suit"
+        },
+        {
+          "source": "fireflies",
+          "record_id": "ff_007",
+          "account": "Hanbit Streaming",
+          "quote": "Pay-as-you-go per minute. We have huge peaks around events and nothing in between."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_038",
+          "account": "Kite Education",
+          "quote": "A per-minute pay-as-you-go plan is the only way our model works."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_046",
+          "account": "Saffron Foods",
+          "quote": "Usage-based, per-minute. Order volume swings with festivals."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_048",
+          "account": "Grove Wellness",
+          "quote": "Pay-as-you-go would let us start small."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_041",
+          "account": "Tidal Podcasts",
+          "quote": "Usage-based pricing would be fairer to our smaller shows."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_010",
+          "account": "Nightshift Podcast Network",
+          "quote": "Flat plan is wasteful for a small show. Want pay-as-you-go per-minute pricing."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_025",
+          "account": "StudyBuddy EdTech",
+          "quote": "Want per-minute billing with overage caps."
+        }
+      ],
+      "suggested": {
+        "impact": 2,
+        "confidence": 0.8,
+        "effort_pw": 8,
+        "rationale": "Fourteen records across sales, support and VoC; mostly SMB/mid ARR but several are ready to close. Needs metering visibility first."
+      },
+      "depends_on": [
+        "usage-analytics-dashboard"
+      ],
+      "commitment_id": null
+    },
+    {
+      "id": "pronunciation-dictionary",
+      "title": "Pronunciation dictionary / shared lexicon",
+      "problem": "Names, acronyms and terminology are mispronounced and the fix does not persist, so teams re-record or maintain manual overrides.",
+      "squad": "voice-quality",
+      "theme": "Voice quality & languages",
+      "evidence": [
+        {
+          "source": "voc",
+          "record_id": "call_001",
+          "account": "Northwind Media",
+          "quote": "We've had to add a pronunciation dictionary manually, which took a couple hours to get right."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_039",
+          "account": "Orbit Games",
+          "quote": "A pronunciation dictionary is the first thing I would ask for."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_042",
+          "account": "Mosaic Audiobooks",
+          "quote": "A shared pronunciation lexicon would be huge."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_019",
+          "account": "Berlin Transit Authority",
+          "quote": "a few of our stations get mispronounced and we've had to add manual overrides."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_005",
+          "account": "Fenwick Games",
+          "quote": "Pronunciation keeps drifting between generations."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_006",
+          "account": "Lumen Publishing",
+          "quote": "We spend hours re-recording because author names are mispronounced."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_028",
+          "account": "Lantern Library Services",
+          "quote": "Pronunciation of author surnames is hit and miss."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_037",
+          "account": "Zenith Translation Services",
+          "quote": "Pronunciation dictionary for product names across all voices, please."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_009",
+          "account": "Zenith Translation Services",
+          "quote": "Also wants a custom pronunciation lexicon so product names are read correctly every time."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_013",
+          "account": "Fenwick Games",
+          "quote": "Narrative designers fight the engine every time a character name is mispronounced."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_015",
+          "account": "Lumen Publishing",
+          "quote": "A shared lexicon across the whole catalog would save them hours each week."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_016",
+          "account": "Riverside Audiobooks",
+          "quote": "Also need to correct pronunciation once and have it stick across books."
+        },
+        {
+          "source": "fireflies",
+          "record_id": "ff_010",
+          "account": "Fenwick Games",
+          "quote": "Add words once, and every voice respects them."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_031",
+          "account": "Lantern Library Services",
+          "quote": "Librarians read author names all day and the tool keeps getting them wrong."
+        }
+      ],
+      "suggested": {
+        "impact": 1,
+        "confidence": 1.0,
+        "effort_pw": 6,
+        "rationale": "Ten accounts, every source type; a lexicon layer is a well-bounded feature with a clear success test."
+      },
+      "depends_on": [],
+      "commitment_id": null
+    },
+    {
+      "id": "voice-clone-consent",
+      "title": "Recorded voice-clone consent workflow",
+      "problem": "Clone creation already verifies consent at a single point, but agencies, studios and narrators need an auditable per-voice consent record they can show their clients and talent.",
+      "squad": "growth",
+      "theme": "Enterprise readiness",
+      "evidence": [
+        {
+          "source": "crm",
+          "record_id": "crm_011",
+          "account": "Meridian Legal Docs",
+          "quote": "Their compliance team also wants documented consent from any person whose voice is cloned, before the clone can be used."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_014",
+          "account": "Whisperwind Games",
+          "quote": "an explicit consent record for each cloned voice would help legally."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_016",
+          "account": "Riverside Audiobooks",
+          "quote": "Narrator contracts now require signed consent before a voice clone is created."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_018",
+          "account": "Wavelength Audio Ads",
+          "quote": "Brands also ask for proof that talent consented to voice cloning."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_014",
+          "account": "Wavelength Audio Ads",
+          "quote": "Client asked for proof the voice talent consented to being cloned."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_039",
+          "account": "Whisperwind Games",
+          "quote": "A consent workflow that records permission would help."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_018",
+          "account": "Riverside Audiobooks",
+          "quote": "Narrators now want signed voice clone consent."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_042",
+          "account": "Mosaic Audiobooks",
+          "quote": "Narrators want written consent before any voice clone is created."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_045",
+          "account": "Echo Dubbing Studio",
+          "quote": "A consent workflow that records permission would protect us legally."
+        }
+      ],
+      "suggested": {
+        "impact": 1,
+        "confidence": 0.8,
+        "effort_pw": 8,
+        "rationale": "Six accounts; legal exposure rather than revenue blocker today but a growing contractual requirement."
+      },
+      "depends_on": [],
+      "commitment_id": null
+    },
+    {
+      "id": "unity-unreal-plugin",
+      "title": "Unity and Unreal engine plugins",
+      "problem": "Game studios hand-wrap the REST API in-engine every sprint; some will not adopt without a plugin.",
+      "squad": "platform-sdk",
+      "theme": "Developer platform",
+      "evidence": [
+        {
+          "source": "crm",
+          "record_id": "crm_013",
+          "account": "Fenwick Games",
+          "quote": "Engineers would love a native Unity plugin so they stop wrapping the REST API."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_014",
+          "account": "Whisperwind Games",
+          "quote": "Studio wants an Unreal and Unity plugin."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_017",
+          "account": "Pixelforge Studio",
+          "quote": "Unreal Engine plugin."
+        },
+        {
+          "source": "voc",
+          "record_id": "call_039",
+          "account": "Orbit Games",
+          "quote": "A proper Unity plugin would save us a sprint each release."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_011",
+          "account": "Whisperwind Games",
+          "quote": "Is there a Unity plugin? We are hand-wrapping the HTTP calls and it is tedious."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_026",
+          "account": "Pixelforge Studio",
+          "quote": "Looking for an Unreal Engine plugin."
+        },
+        {
+          "source": "fireflies",
+          "record_id": "ff_010",
+          "account": "Fenwick Games",
+          "quote": "A native Unity plugin would cut that, and an Unreal one is next on our list."
+        }
+      ],
+      "suggested": {
+        "impact": 1,
+        "confidence": 0.8,
+        "effort_pw": 8,
+        "rationale": "Five studios (\u2248250k ARR combined); Unity first, Unreal second, wrapping existing REST client."
+      },
+      "depends_on": [],
+      "commitment_id": null
+    },
+    {
+      "id": "annual-prepay-volume-discounts",
+      "title": "Volume discounts and annual-prepay option",
+      "problem": "Finance teams at scaling accounts want volume tiers or an annual discount; this partly conflicts with the push for pure pay-as-you-go.",
+      "squad": "growth",
+      "theme": "Pricing & insights",
+      "evidence": [
+        {
+          "source": "voc",
+          "record_id": "call_004",
+          "account": "Fenwick Games",
+          "quote": "Volume discounts past a certain threshold, or a flat monthly tier for high-usage studios"
+        },
+        {
+          "source": "voc",
+          "record_id": "call_020",
+          "account": "Insight Analytics",
+          "quote": "rough pricing pain as we scale"
+        },
+        {
+          "source": "voc",
+          "record_id": "call_034",
+          "account": "Ironclad Security Training",
+          "quote": "The lack of an annual prepay discount option made it hard to justify to finance"
+        },
+        {
+          "source": "voc",
+          "record_id": "call_021",
+          "account": "Lumen Publishing",
+          "quote": "The character pricing didn't help"
+        },
+        {
+          "source": "voc",
+          "record_id": "call_010",
+          "account": "TrueNorth Fitness App",
+          "quote": "we're watching the pricing closely as our user base grows"
+        }
+      ],
+      "suggested": {
+        "impact": 1,
+        "confidence": 0.5,
+        "effort_pw": 3,
+        "rationale": "Five VoC mentions but no sales-led deal; confidence low because it pulls against the usage-based request."
+      },
+      "depends_on": [],
+      "commitment_id": null
+    },
+    {
+      "id": "sdk-docs-and-tutorials",
+      "title": "Streaming/websocket docs, SDK examples and SSO setup guide",
+      "problem": "Docs for websocket streaming, SDK examples and SSO configuration trail the REST docs.",
+      "squad": "platform-sdk",
+      "theme": "Developer platform",
+      "evidence": [
+        {
+          "source": "voc",
+          "record_id": "call_009",
+          "account": "Pixelforge Studio",
+          "quote": "the websocket streaming docs are thinner than the REST docs"
+        },
+        {
+          "source": "voc",
+          "record_id": "call_009",
+          "account": "Pixelforge Studio",
+          "quote": "An end-to-end tutorial for a real-time conversational agent"
+        },
+        {
+          "source": "voc",
+          "record_id": "call_003",
+          "account": "Solace Health",
+          "quote": "The Python SDK examples are a bit behind"
+        },
+        {
+          "source": "voc",
+          "record_id": "call_023",
+          "account": "Vantage Enterprise Systems",
+          "quote": "the self-serve docs for SSO setup are thinner than the rest of the docs"
+        }
+      ],
+      "suggested": {
+        "impact": 0.5,
+        "confidence": 1.0,
+        "effort_pw": 3,
+        "rationale": "Three accounts; low risk, cheap, but low commercial impact."
+      },
+      "depends_on": [],
+      "commitment_id": null
+    },
+    {
+      "id": "interruption-barge-in",
+      "title": "Clean interruption (barge-in) handling for voice agents",
+      "problem": "When a caller talks over the agent, audio keeps playing for almost a second.",
+      "squad": "voice-quality",
+      "theme": "Voice quality & languages",
+      "evidence": [
+        {
+          "source": "voc",
+          "record_id": "call_008",
+          "account": "Clearline Support Co.",
+          "quote": "Interruption handling is rough"
+        },
+        {
+          "source": "voc",
+          "record_id": "call_008",
+          "account": "Clearline Support Co.",
+          "quote": "there's an awkward overlap for almost a second"
+        }
+      ],
+      "suggested": {
+        "impact": 1,
+        "confidence": 0.5,
+        "effort_pw": 8,
+        "rationale": "Single account, but it affects every IVR/agent use case; needs latency work first to measure."
+      },
+      "depends_on": [],
+      "commitment_id": null
+    },
+    {
+      "id": "number-time-normalization",
+      "title": "Consistent reading of times, numbers and dates",
+      "problem": "Times such as 3:45 PM are read inconsistently so every announcement is hand-checked.",
+      "squad": "voice-quality",
+      "theme": "Voice quality & languages",
+      "evidence": [
+        {
+          "source": "voc",
+          "record_id": "call_028",
+          "account": "Turnstile Ticketing",
+          "quote": "sometimes comes out with an odd pause"
+        },
+        {
+          "source": "voc",
+          "record_id": "call_028",
+          "account": "Turnstile Ticketing",
+          "quote": "we manually spot-check every announcement with a time or date in it before publishing"
+        }
+      ],
+      "suggested": {
+        "impact": 0.5,
+        "confidence": 0.5,
+        "effort_pw": 4,
+        "rationale": "One SMB account."
+      },
+      "depends_on": [],
+      "commitment_id": null
+    },
+    {
+      "id": "language-quality-nordic-japanese",
+      "title": "Production-grade Swedish, Finnish and Japanese",
+      "problem": "Swedish and Finnish are still beta and Japanese pitch accent is slightly off, limiting final-delivery use.",
+      "squad": "voice-quality",
+      "theme": "Voice quality & languages",
+      "evidence": [
+        {
+          "source": "voc",
+          "record_id": "call_007",
+          "account": "Nordic Voice Agency",
+          "quote": "we need Swedish and Finnish for Nordic clients"
+        },
+        {
+          "source": "voc",
+          "record_id": "call_011",
+          "account": "Zenith Translation Services",
+          "quote": "pitch accent still sounds slightly off on certain words"
+        }
+      ],
+      "suggested": {
+        "impact": 1,
+        "confidence": 0.5,
+        "effort_pw": 12,
+        "rationale": "Two accounts, wide scope per language."
+      },
+      "depends_on": [],
+      "commitment_id": null
+    },
+    {
+      "id": "swahili-voices",
+      "title": "Swahili voices",
+      "problem": "A Nairobi newsroom would use a Swahili voice as a differentiator.",
+      "squad": "voice-quality",
+      "theme": "Voice quality & languages",
+      "evidence": [
+        {
+          "source": "crm",
+          "record_id": "crm_028",
+          "account": "Baraza News",
+          "quote": "Swahili voices; maybe Arabic later."
+        },
+        {
+          "source": "support",
+          "record_id": "sup_031",
+          "account": "Baraza News",
+          "quote": "Swahili would be great."
+        }
+      ],
+      "suggested": {
+        "impact": 0.5,
+        "confidence": 0.5,
+        "effort_pw": 10,
+        "rationale": "One small account asking twice; new-language data costs."
+      },
+      "depends_on": [],
+      "commitment_id": null
+    },
+    {
+      "id": "multi-speaker-dialogue",
+      "title": "Multi-speaker dialogue in one generation call",
+      "problem": "Teams generate each character separately and stitch audio by hand.",
+      "squad": "voice-quality",
+      "theme": "Voice quality & languages",
+      "evidence": [
+        {
+          "source": "voc",
+          "record_id": "call_006",
+          "account": "Riverside Audiobooks",
+          "quote": "Multi-speaker dialogue in a single generation call would save us so much post-production work."
+        }
+      ],
+      "suggested": {
+        "impact": 1,
+        "confidence": 0.5,
+        "effort_pw": 10,
+        "rationale": "One account claiming half of editing time saved."
+      },
+      "depends_on": [],
+      "commitment_id": null
+    },
+    {
+      "id": "emotion-tags-api",
+      "title": "Inline emotion tags in the API",
+      "problem": "Studios maintain a dozen presets per character instead of tagging emotion inline.",
+      "squad": "platform-sdk",
+      "theme": "Developer platform",
+      "evidence": [
+        {
+          "source": "voc",
+          "record_id": "call_017",
+          "account": "Whisperwind Games",
+          "quote": "Emotion tags in the API"
+        },
+        {
+          "source": "voc",
+          "record_id": "call_017",
+          "account": "Whisperwind Games",
+          "quote": "as our character roster grows it's becoming a real maintenance burden."
+        }
+      ],
+      "suggested": {
+        "impact": 0.5,
+        "confidence": 0.5,
+        "effort_pw": 6,
+        "rationale": "One account; self-described nice-to-have."
+      },
+      "depends_on": [],
+      "commitment_id": null
+    },
+    {
+      "id": "bulk-job-status",
+      "title": "Bulk-job status and per-item failure reporting",
+      "problem": "Batch jobs do not say which files or chapters failed, so teams check outputs manually.",
+      "squad": "platform-sdk",
+      "theme": "Developer platform",
+      "evidence": [
+        {
+          "source": "voc",
+          "record_id": "call_022",
+          "account": "Nightshift Podcast Network",
+          "quote": "when we submit 50 files at once, we can't easily see which ones failed"
+        },
+        {
+          "source": "voc",
+          "record_id": "call_033",
+          "account": "Lantern Library Services",
+          "quote": "If one chapter fails mid-batch, the whole batch doesn't tell you which chapter failed in the response"
+        }
+      ],
+      "suggested": {
+        "impact": 1,
+        "confidence": 0.8,
+        "effort_pw": 4,
+        "rationale": "Two accounts describe the same gap; small API and dashboard change."
+      },
+      "depends_on": [],
+      "commitment_id": null
+    },
+    {
+      "id": "rate-limit-clarity",
+      "title": "Predictable rate-limit windows and self-serve raises",
+      "problem": "Limits reset unpredictably at midnight UTC and a limit hit during a deadline took more than a day to raise.",
+      "squad": "platform-sdk",
+      "theme": "Developer platform",
+      "evidence": [
+        {
+          "source": "voc",
+          "record_id": "call_016",
+          "account": "Overdrive Motorsports Media",
+          "quote": "The rate limits reset unpredictably around midnight UTC rather than a clear rolling window"
+        },
+        {
+          "source": "voc",
+          "record_id": "call_027",
+          "account": "Meridian Legal Docs",
+          "quote": "We hit our rate limit during a compliance deadline crunch"
+        }
+      ],
+      "suggested": {
+        "impact": 0.5,
+        "confidence": 0.8,
+        "effort_pw": 3,
+        "rationale": "Two accounts; one near-churn incident already handled manually."
+      },
+      "depends_on": [],
+      "commitment_id": null
+    },
+    {
+      "id": "billing-contacts",
+      "title": "Multiple billing contacts per account",
+      "problem": "Only one contact receives invoice emails; a missed payment triggered a service-pause warning.",
+      "squad": "growth",
+      "theme": "Product polish",
+      "evidence": [
+        {
+          "source": "voc",
+          "record_id": "call_031",
+          "account": "Skyline Property Management",
+          "quote": "our account has two different billing contacts and only one of them receives the invoice emails"
+        }
+      ],
+      "suggested": {
+        "impact": 0.5,
+        "confidence": 1.0,
+        "effort_pw": 2,
+        "rationale": "One account; trivial fix, avoids a payment-failure incident."
+      },
+      "depends_on": [],
+      "commitment_id": null
+    },
+    {
+      "id": "dashboard-search-dark-mode",
+      "title": "Dashboard transcript search and dark mode",
+      "problem": "Library search matches filenames only and there is no dark mode.",
+      "squad": "growth",
+      "theme": "Product polish",
+      "evidence": [
+        {
+          "source": "voc",
+          "record_id": "call_036",
+          "account": "Alpine Trail Guides",
+          "quote": "Search within our generated audio library is basically just filename matching"
+        },
+        {
+          "source": "support",
+          "record_id": "sup_040",
+          "account": "Lantern Library Services",
+          "quote": "Nice to have: dark mode in the dashboard."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_031",
+          "account": "Lantern Library Services",
+          "quote": "Also asked for dark mode, nice to have."
+        }
+      ],
+      "suggested": {
+        "impact": 0.25,
+        "confidence": 0.8,
+        "effort_pw": 5,
+        "rationale": "Two small accounts, both phrased as nice-to-have."
+      },
+      "depends_on": [],
+      "commitment_id": null
+    },
+    {
+      "id": "salesforce-connector",
+      "title": "Salesforce connector",
+      "problem": "A restaurant group asked for a Salesforce integration but flagged it as not a priority.",
+      "squad": "growth",
+      "theme": "Product polish",
+      "evidence": [
+        {
+          "source": "support",
+          "record_id": "sup_041",
+          "account": "Fresco Restaurant Group",
+          "quote": "Can you build a Salesforce connector? Not urgent."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_030",
+          "account": "Fresco Restaurant Group",
+          "quote": "Also asked for a Salesforce connector, but that is not a priority."
+        }
+      ],
+      "suggested": {
+        "impact": 0.25,
+        "confidence": 0.5,
+        "effort_pw": 8,
+        "rationale": "One account, explicitly deprioritised by the customer."
+      },
+      "depends_on": [],
+      "commitment_id": null
+    },
+    {
+      "id": "voice-preset-migration",
+      "title": "Automated migration of voice presets",
+      "problem": "Moving from a previous provider meant recreating about 15 custom voices manually.",
+      "squad": "platform-sdk",
+      "theme": "Developer platform",
+      "evidence": [
+        {
+          "source": "voc",
+          "record_id": "call_018",
+          "account": "Freshline Grocery",
+          "quote": "migrating our existing voice presets wasn't automated"
+        }
+      ],
+      "suggested": {
+        "impact": 0.25,
+        "confidence": 0.8,
+        "effort_pw": 3,
+        "rationale": "Single onboarding anecdote."
+      },
+      "depends_on": [],
+      "commitment_id": null
+    },
+    {
+      "id": "marketplace-approval-sla",
+      "title": "Faster voice-marketplace approval",
+      "problem": "Creators wait up to five days for a cloned voice to be approved before it can be published.",
+      "squad": "growth",
+      "theme": "Product polish",
+      "evidence": [
+        {
+          "source": "voc",
+          "record_id": "call_026",
+          "account": "Crescent Audio Marketplace",
+          "quote": "The voice review/approval queue before a voice goes public can take up to 5 days"
+        }
+      ],
+      "suggested": {
+        "impact": 0.5,
+        "confidence": 0.5,
+        "effort_pw": 4,
+        "rationale": "Single account on a niche feature."
+      },
+      "depends_on": [],
+      "commitment_id": null
+    },
+    {
+      "id": "broadcast-mp3-export",
+      "title": "Broadcast-grade MP3 export",
+      "problem": "A radio network asked for a higher-quality MP3 export for studio use.",
+      "squad": "platform-sdk",
+      "theme": "Developer platform",
+      "evidence": [
+        {
+          "source": "support",
+          "record_id": "sup_032",
+          "account": "Legacy Radio Network",
+          "quote": "Would like a broadcast-grade MP3 export."
+        },
+        {
+          "source": "crm",
+          "record_id": "crm_021",
+          "account": "Legacy Radio Network",
+          "quote": "Better MP3 export"
+        }
+      ],
+      "suggested": {
+        "impact": 0.25,
+        "confidence": 0.5,
+        "effort_pw": 3,
+        "rationale": "One account, mixed with an on-prem question captured under VPC."
+      },
+      "depends_on": [],
+      "commitment_id": null
+    }
+  ]
+}

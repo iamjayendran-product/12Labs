@@ -1,0 +1,48 @@
+{
+  "id": "ff_007",
+  "title": "Hanbit: live dubbing evaluation",
+  "date": "2026-06-30",
+  "account": "Hanbit Streaming",
+  "attendees": [
+    "Ji-woo Park (Hanbit)",
+    "Priya Raman (12Labs)",
+    "Sam Ito (12Labs SE)"
+  ],
+  "sentences": [
+    {
+      "speaker": "Ji-woo Park",
+      "start_s": 0.0,
+      "text": "For live dubbing, the voice has to start within three hundred milliseconds or the sync falls apart."
+    },
+    {
+      "speaker": "Sam Ito",
+      "start_s": 13.1,
+      "text": "Our current time to first byte in Asia is roughly six hundred and fifty."
+    },
+    {
+      "speaker": "Ji-woo Park",
+      "start_s": 24.2,
+      "text": "Then we can't go live. Also, the seat plan makes no sense for us."
+    },
+    {
+      "speaker": "Priya Raman",
+      "start_s": 34.9,
+      "text": "What would work?"
+    },
+    {
+      "speaker": "Ji-woo Park",
+      "start_s": 42.0,
+      "text": "Pay-as-you-go per minute. We have huge peaks around events and nothing in between."
+    },
+    {
+      "speaker": "Priya Raman",
+      "start_s": 53.9,
+      "text": "I will bring usage-based pricing to our pricing council."
+    }
+  ],
+  "summary": "Hanbit blocked on streaming latency (needs under 300 ms TTFB) and wants usage-based per-minute pricing. No contract date.",
+  "action_items": [
+    "Priya to raise usage-based pricing with pricing council",
+    "Sam to benchmark APAC latency"
+  ]
+}

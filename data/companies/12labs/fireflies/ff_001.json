@@ -1,0 +1,60 @@
+{
+  "id": "ff_001",
+  "title": "Vantage x 12Labs: security review",
+  "date": "2026-04-15",
+  "account": "Vantage Enterprise Systems",
+  "attendees": [
+    "Rachel Kim (Vantage)",
+    "Tom Alvarez (Vantage CISO)",
+    "Dana Whitaker (12Labs)",
+    "Sam Ito (12Labs SE)"
+  ],
+  "sentences": [
+    {
+      "speaker": "Tom Alvarez",
+      "start_s": 0.0,
+      "text": "Thanks for joining. I'll be direct: we cannot onboard another vendor that sits outside our identity provider."
+    },
+    {
+      "speaker": "Dana Whitaker",
+      "start_s": 13.8,
+      "text": "Understood. Today our login is email and password with API keys."
+    },
+    {
+      "speaker": "Tom Alvarez",
+      "start_s": 24.4,
+      "text": "That is a non-starter. We need SAML single sign-on through Okta, with SCIM provisioning if possible."
+    },
+    {
+      "speaker": "Rachel Kim",
+      "start_s": 37.5,
+      "text": "And our auditors will ask for your SOC 2 Type II report, not just Type I."
+    },
+    {
+      "speaker": "Sam Ito",
+      "start_s": 48.7,
+      "text": "We have a Type I in hand. Type II observation window would finish this winter."
+    },
+    {
+      "speaker": "Tom Alvarez",
+      "start_s": 60.3,
+      "text": "Then put a date in the contract. January 31st works for us; if it slips we pause the expansion."
+    },
+    {
+      "speaker": "Dana Whitaker",
+      "start_s": 73.1,
+      "text": "I will take that back and confirm the date in writing this week."
+    },
+    {
+      "speaker": "Rachel Kim",
+      "start_s": 83.6,
+      "text": "The expansion is worth about three hundred thousand, so this matters to us as much as to you."
+    }
+  ],
+  "summary": "Vantage will only expand if 12Labs delivers SAML SSO and a SOC 2 Type II report by 31 January 2027. CISO considers email/password login a non-starter.",
+  "action_items": [
+    "Dana to confirm 31 Jan 2027 date in writing",
+    "Sam to share SOC 2 Type I and audit window timeline",
+    "Dana to scope SCIM provisioning"
+  ]
+}

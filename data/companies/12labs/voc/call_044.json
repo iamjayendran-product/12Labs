@@ -1,0 +1,24 @@
+{
+  "id": "call_044",
+  "customer_name": "Naomi Feld",
+  "company": "Quill Legal Tech",
+  "date": "2026-07-13",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "What enterprise controls do you need?"
+    },
+    {
+      "speaker": "customer",
+      "text": "SAML SSO. Our clients' security teams will not allow another password. SOC 2 report as well."
+    },
+    {
+      "speaker": "agent",
+      "text": "Timeline?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Before the end of the year, or our pilot gets shelved."
+    }
+  ]
+}

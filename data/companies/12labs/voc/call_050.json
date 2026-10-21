@@ -1,0 +1,24 @@
+{
+  "id": "call_050",
+  "customer_name": "Alicia Brandt",
+  "company": "Compass Finance Bank",
+  "date": "2026-10-05",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "What does procurement require?"
+    },
+    {
+      "speaker": "customer",
+      "text": "SOC 2 Type II, SAML SSO, and a VPC deployment in our own cloud account. Without them we cannot even start a pilot."
+    },
+    {
+      "speaker": "agent",
+      "text": "Is there any flexibility?"
+    },
+    {
+      "speaker": "customer",
+      "text": "None on security. We would pay a premium for private cloud."
+    }
+  ]
+}

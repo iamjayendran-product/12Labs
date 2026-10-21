@@ -1,0 +1,24 @@
+{
+  "id": "call_045",
+  "customer_name": "Pierre Laurent",
+  "company": "Echo Dubbing Studio",
+  "date": "2026-07-27",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "How do you use voice cloning?"
+    },
+    {
+      "speaker": "customer",
+      "text": "We clone actors with permission. A consent workflow that records permission would protect us legally."
+    },
+    {
+      "speaker": "agent",
+      "text": "Latency?"
+    },
+    {
+      "speaker": "customer",
+      "text": "For live dubbing, also yes, we need to go below three hundred milliseconds."
+    }
+  ]
+}

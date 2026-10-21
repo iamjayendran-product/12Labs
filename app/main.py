@@ -8,8 +8,10 @@ from pydantic import BaseModel
 load_dotenv()
 
 from app.rag import answer_question  # noqa: E402  (must load .env first)
+from pmos.api import create_router  # noqa: E402
 
-STATIC_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "static")
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATIC_DIR = os.path.join(ROOT_DIR, "static")
 
 app = FastAPI(title="12Labs Feedback RAG")
 
@@ -28,4 +30,12 @@ def chat(req: ChatRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 
+app.include_router(
+    create_router(
+        ROOT_DIR,
+        os.getenv("PMOS_COMPANY", "12labs"),
+        state_dir=os.getenv("PMOS_STATE_DIR"),  # defaults to <repo>/state
+        export_path=os.getenv("PMOS_EXPORT_PATH"),  # defaults to <repo>/ROADMAP.md
+    )
+)
 app.mount("/", StaticFiles(directory=STATIC_DIR, html=True), name="static")

@@ -1,0 +1,48 @@
+{
+  "id": "ff_009",
+  "title": "Rapidfire: webhook incident review",
+  "date": "2026-08-20",
+  "account": "Rapidfire Logistics",
+  "attendees": [
+    "Diego Fuentes (Rapidfire)",
+    "Marcus Hale (12Labs)",
+    "Sam Ito (12Labs SE)"
+  ],
+  "sentences": [
+    {
+      "speaker": "Diego Fuentes",
+      "start_s": 0.0,
+      "text": "Three job-complete webhooks never arrived last month. Drivers called us to ask where their instructions were."
+    },
+    {
+      "speaker": "Sam Ito",
+      "start_s": 13.8,
+      "text": "Failed webhooks aren't retried and there is no delivery log."
+    },
+    {
+      "speaker": "Diego Fuentes",
+      "start_s": 24.1,
+      "text": "We need retries with backoff, signed payloads, and a log we can search."
+    },
+    {
+      "speaker": "Marcus Hale",
+      "start_s": 35.1,
+      "text": "Understood. What deadline are we talking about?"
+    },
+    {
+      "speaker": "Diego Fuentes",
+      "start_s": 44.5,
+      "text": "Our renewal terms say webhook delivery guarantees by the end of March, or we credit a quarter."
+    },
+    {
+      "speaker": "Marcus Hale",
+      "start_s": 57.2,
+      "text": "I'll flag the thirty-first of March internally."
+    }
+  ],
+  "summary": "Rapidfire's renewal requires webhook retries, signing and delivery logs by 31 Mar 2027 or a quarter credit applies.",
+  "action_items": [
+    "Marcus to flag 31 Mar 2027 webhook date to engineering",
+    "Sam to write webhook reliability spec"
+  ]
+}

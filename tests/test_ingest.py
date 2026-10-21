@@ -73,3 +73,15 @@ def test_chunk_transcript_empty_turns_produces_no_chunks():
     transcript = make_transcript([])
 
     assert chunk_transcript(transcript) == []
+
+
+def test_resolve_voc_dir_prefers_company_folder_and_falls_back_to_legacy(tmp_path):
+    from scripts.ingest import resolve_voc_dir
+
+    (tmp_path / "data" / "transcripts").mkdir(parents=True)
+    assert resolve_voc_dir(str(tmp_path), "acme") == str(tmp_path / "data" / "transcripts")
+
+    (tmp_path / "data" / "companies" / "acme" / "voc").mkdir(parents=True)
+    assert resolve_voc_dir(str(tmp_path), "acme") == str(
+        tmp_path / "data" / "companies" / "acme" / "voc"
+    )

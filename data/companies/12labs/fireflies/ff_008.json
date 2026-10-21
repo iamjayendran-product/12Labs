@@ -1,0 +1,43 @@
+{
+  "id": "ff_008",
+  "title": "Northwind: expansion and reporting",
+  "date": "2026-07-16",
+  "account": "Northwind Media",
+  "attendees": [
+    "Maria Chen (Northwind)",
+    "Jules Park (Northwind Finance)",
+    "Luis Ortega (12Labs)"
+  ],
+  "sentences": [
+    {
+      "speaker": "Jules Park",
+      "start_s": 0.0,
+      "text": "Every month I rebuild the minutes-consumed report by hand from exported logs."
+    },
+    {
+      "speaker": "Maria Chen",
+      "start_s": 11.5,
+      "text": "We would happily spend more if finance could see usage per project."
+    },
+    {
+      "speaker": "Luis Ortega",
+      "start_s": 22.3,
+      "text": "A usage dashboard is something other accounts have asked for."
+    },
+    {
+      "speaker": "Jules Park",
+      "start_s": 32.6,
+      "text": "Per-project breakdown, CSV export, and a monthly email. That is all."
+    },
+    {
+      "speaker": "Maria Chen",
+      "start_s": 43.5,
+      "text": "If you ship it before our budget cycle in the new year, expansion is easy."
+    }
+  ],
+  "summary": "Northwind will expand if 12Labs ships a usage analytics dashboard with per-project breakdown and CSV export before their new-year budget cycle.",
+  "action_items": [
+    "Luis to document usage dashboard requirements",
+    "Luis to share dashboard timeline in Q4"
+  ]
+}

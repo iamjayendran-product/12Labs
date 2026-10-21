@@ -1,0 +1,24 @@
+{
+  "id": "call_043",
+  "customer_name": "Dev Patel",
+  "company": "Atlas Fleet Apps",
+  "date": "2026-06-29",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "What is your mobile story?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Half of our drivers are on Android and your Android SDK cannot stream. We are stuck on pre-rendered audio."
+    },
+    {
+      "speaker": "agent",
+      "text": "Impact?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Support calls and delays. It is our top request."
+    }
+  ]
+}

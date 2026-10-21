@@ -1,0 +1,48 @@
+{
+  "id": "ff_004",
+  "title": "Beacon: three-year deal terms",
+  "date": "2026-05-26",
+  "account": "Beacon Arabic Media",
+  "attendees": [
+    "Fatima Al-Rashid (Beacon)",
+    "Khalid Mansour (Beacon Editorial)",
+    "Dana Whitaker (12Labs)"
+  ],
+  "sentences": [
+    {
+      "speaker": "Khalid Mansour",
+      "start_s": 0.0,
+      "text": "Our listeners notice immediately when an Arabic voice sounds like a textbook."
+    },
+    {
+      "speaker": "Dana Whitaker",
+      "start_s": 11.5,
+      "text": "Which dialect matters most for you?"
+    },
+    {
+      "speaker": "Khalid Mansour",
+      "start_s": 20.0,
+      "text": "Gulf dialect for features, and clean Modern Standard Arabic for news bulletins."
+    },
+    {
+      "speaker": "Fatima Al-Rashid",
+      "start_s": 31.6,
+      "text": "We have put both voices into the draft contract as a delivery condition, due end of February."
+    },
+    {
+      "speaker": "Dana Whitaker",
+      "start_s": 44.3,
+      "text": "I'll confirm feasibility with the voice team before we countersign."
+    },
+    {
+      "speaker": "Fatima Al-Rashid",
+      "start_s": 55.1,
+      "text": "If those voices are not live by the twenty-eighth of February we have an exit clause."
+    }
+  ],
+  "summary": "Beacon's three-year deal is conditional on Modern Standard and Gulf-dialect Arabic voices by 28 Feb 2027, with an exit clause.",
+  "action_items": [
+    "Dana to confirm feasibility with voice team",
+    "Dana to send contract redline"
+  ]
+}

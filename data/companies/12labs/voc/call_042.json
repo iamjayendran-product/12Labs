@@ -1,0 +1,24 @@
+{
+  "id": "call_042",
+  "customer_name": "Helena Voss",
+  "company": "Mosaic Audiobooks",
+  "date": "2026-06-15",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "What slows your production?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Re-recording chapters because of pronunciation errors. A shared pronunciation lexicon would be huge."
+    },
+    {
+      "speaker": "agent",
+      "text": "And voice rights?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Narrators want written consent before any voice clone is created. We need that recorded."
+    }
+  ]
+}

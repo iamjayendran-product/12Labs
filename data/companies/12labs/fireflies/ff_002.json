@@ -1,0 +1,55 @@
+{
+  "id": "ff_002",
+  "title": "Solace Health: HIPAA deployment review",
+  "date": "2026-04-29",
+  "account": "Solace Health",
+  "attendees": [
+    "Priya Nadar (Solace)",
+    "Greg Holt (Solace Legal)",
+    "Luis Ortega (12Labs)",
+    "Sam Ito (12Labs SE)"
+  ],
+  "sentences": [
+    {
+      "speaker": "Greg Holt",
+      "start_s": 0.0,
+      "text": "Patient-adjacent audio cannot touch a shared multi-tenant endpoint. Our counsel was explicit."
+    },
+    {
+      "speaker": "Luis Ortega",
+      "start_s": 12.6,
+      "text": "We can sign a BAA today. Dedicated deployment is the open question."
+    },
+    {
+      "speaker": "Greg Holt",
+      "start_s": 23.4,
+      "text": "We need a VPC deployment in our own cloud account, with keys we control."
+    },
+    {
+      "speaker": "Priya Nadar",
+      "start_s": 34.6,
+      "text": "Without that, I cannot renew in March. I would rather say that now than in February."
+    },
+    {
+      "speaker": "Sam Ito",
+      "start_s": 46.6,
+      "text": "A VPC deployment is a big piece of work. Realistically it is a quarter of effort for a squad."
+    },
+    {
+      "speaker": "Greg Holt",
+      "start_s": 59.2,
+      "text": "Then it has to start in January for a March fifteenth go-live."
+    },
+    {
+      "speaker": "Luis Ortega",
+      "start_s": 69.6,
+      "text": "Noted. I will take the March fifteenth date to product leadership."
+    }
+  ],
+  "summary": "Solace Health requires a VPC deployment with BAA for HIPAA workloads, live by 15 March 2027, or will not renew.",
+  "action_items": [
+    "Luis to escalate 15 Mar 2027 VPC date to product leadership",
+    "Sam to draft VPC reference architecture",
+    "Legal to review BAA addendum"
+  ]
+}

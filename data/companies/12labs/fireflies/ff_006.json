@@ -1,0 +1,48 @@
+{
+  "id": "ff_006",
+  "title": "Clearline: incident postmortem and QBR",
+  "date": "2026-06-12",
+  "account": "Clearline Support Co.",
+  "attendees": [
+    "Ben Okafor (Clearline)",
+    "Dana Whitaker (12Labs)",
+    "Sam Ito (12Labs SE)"
+  ],
+  "sentences": [
+    {
+      "speaker": "Ben Okafor",
+      "start_s": 0.0,
+      "text": "Our first reply during the outage took nine hours. Our own customers were on the phone."
+    },
+    {
+      "speaker": "Dana Whitaker",
+      "start_s": 12.2,
+      "text": "I apologise. There was no priority queue for P1 tickets."
+    },
+    {
+      "speaker": "Ben Okafor",
+      "start_s": 22.2,
+      "text": "We need a written SLA. One hour response on P1, in the contract."
+    },
+    {
+      "speaker": "Ben Okafor",
+      "start_s": 32.8,
+      "text": "And the webhooks. They dropped silently. We found out from our customers, not from you."
+    },
+    {
+      "speaker": "Sam Ito",
+      "start_s": 45.0,
+      "text": "We don't retry failed webhooks today. That is something we should fix."
+    },
+    {
+      "speaker": "Dana Whitaker",
+      "start_s": 56.0,
+      "text": "We'll put the one-hour P1 response into the renewal, effective the middle of January."
+    }
+  ],
+  "summary": "Clearline wants a contractual 1-hour P1 response SLA from mid-January 2027 and reliable webhooks with retries after a silent-drop incident.",
+  "action_items": [
+    "Dana to add 1h P1 SLA to renewal effective 15 Jan 2027",
+    "Sam to log webhook retry gap as a product issue"
+  ]
+}

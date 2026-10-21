@@ -1,0 +1,24 @@
+{
+  "id": "call_041",
+  "customer_name": "Marco DeLuca",
+  "company": "Tidal Podcasts",
+  "date": "2026-06-02",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "What would help you manage cost?"
+    },
+    {
+      "speaker": "customer",
+      "text": "A usage dashboard. I cannot tell which show uses how many minutes. Analytics, even a basic usage report, would help."
+    },
+    {
+      "speaker": "agent",
+      "text": "Pricing model?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Usage-based pricing would be fairer to our smaller shows."
+    }
+  ]
+}

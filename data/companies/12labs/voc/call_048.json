@@ -1,0 +1,24 @@
+{
+  "id": "call_048",
+  "customer_name": "Tess Morgan",
+  "company": "Grove Wellness",
+  "date": "2026-09-07",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "What do you think of the pricing?"
+    },
+    {
+      "speaker": "customer",
+      "text": "The plan is too rigid. Pay-as-you-go would let us start small. Overage fees on the current plan feel punitive."
+    },
+    {
+      "speaker": "agent",
+      "text": "Anything on product?"
+    },
+    {
+      "speaker": "customer",
+      "text": "An analytics dashboard to see minutes used by program."
+    }
+  ]
+}
