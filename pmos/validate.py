@@ -91,7 +91,12 @@ def main(argv: Optional[List[str]] = None) -> int:
         return 1
     print(f"OK: {len(backlog.items)} items, {len(company.commitments)} commitments covered")
     if args.log_derived:
-        EventLog(os.path.join(args.root, "state")).append(
+        log = EventLog(os.path.join(args.root, "state"))
+        counts: dict = {}
+        for r in source_records(company):
+            counts[r["source"]] = counts.get(r["source"], 0) + 1
+        log.append("sources.loaded", "claude", {"company": args.company, "counts": counts})
+        log.append(
             "backlog.derived", "claude",
             {"company": args.company, "items": len(backlog.items), "derived_at": backlog.derived_at},
         )

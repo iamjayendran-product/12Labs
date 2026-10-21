@@ -102,6 +102,8 @@ def test_cli_exit_codes_and_derived_event(tmp_path):
     root = make_company(tmp_path, [item()])
     assert main(["--company", "acme", "--root", root, "--log-derived"]) == 0
     events = [json.loads(l) for l in open(os.path.join(root, "state", "events.jsonl"))]
-    assert events[-1]["type"] == "backlog.derived" and events[-1]["payload"]["items"] == 1
+    assert [e["type"] for e in events] == ["sources.loaded", "backlog.derived"]
+    assert events[0]["payload"]["counts"] == {"crm": 1, "commitment": 1}
+    assert events[-1]["payload"]["items"] == 1
     root2 = make_company(tmp_path / "two", [item(commitment_id=None)])
     assert main(["--company", "acme", "--root", root2]) == 1
