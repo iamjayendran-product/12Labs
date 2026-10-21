@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sources · PM OS</title><link rel="stylesheet" href="pmos.css"></head>
+<body><main>
+  <h2 style="margin-top:0">Signal sources</h2>
+  <div class="chips" id="counts" data-testid="source-counts"></div>
+  <div class="toolbar">
+    <select id="source" aria-label="Source type"><option value="">All sources</option></select>
+    <input id="q" type="search" placeholder="Search text or account…" aria-label="Search" size="32">
+    <span class="muted" id="total"></span>
+  </div>
+  <div id="records" data-testid="records"></div>
+  <h2>Event log</h2>
+  <p class="muted">Append-only audit trail (state/events.jsonl). Newest first.</p>
+  <div id="events" data-testid="events"></div>
+</main>
+<script src="pmos.js"></script>
+<script>
+renderNav('Sources');
+async function loadRecords() {
+  const p = new URLSearchParams();
+  if ($src.value) p.set('source', $src.value);
+  if ($q.value.trim()) p.set('q', $q.value.trim());
+  const d = await api('/sources?' + p);
+  $total.textContent = d.total + ' record' + (d.total === 1 ? '' : 's');
+  $records.replaceChildren(...d.records.slice(0, 150).map(r => h('div', { class: 'record', 'data-testid': 'record-' + r.record_id },
+    srcBadge(r.source), ' ', h('b', {}, r.account), ' ', h('span', { class: 'muted' }, r.record_id + ' · ' + r.date),
+    h('div', { class: 'text' }, r.text.length > 360 ? r.text.slice(0, 360) + '…' : r.text))));
+}
+async function loadEvents() {
+  const d = await api('/events?limit=100');
+  $events.replaceChildren(...(d.events.length ? d.events.slice().reverse().map(e => h('div', { class: 'event', 'data-testid': 'event' },
+    h('code', {}, fmtTs(e.ts)), ' ', h('b', {}, e.type), ' ', h('span', { class: 'muted' }, 'by ' + e.actor + ' · ' + JSON.stringify(e.payload).slice(0, 140))))
+    : [h('p', { class: 'muted' }, 'No events yet. Run /derive-backlog or edit an item.')]));
+}
+const $src = document.getElementById('source'), $q = document.getElementById('q'), $total = document.getElementById('total'),
+  $records = document.getElementById('records'), $events = document.getElementById('events');
+(async () => {
+  const d = await api('/sources?limit=1');
+  document.getElementById('counts').replaceChildren(...Object.entries(d.counts).map(([s, n]) => h('span', { class: 'chip', 'data-testid': 'count-' + s }, h('b', {}, n), SOURCE_LABEL[s] || s)));
+  Object.keys(d.counts).forEach(s => $src.append(h('option', { value: s }, SOURCE_LABEL[s] || s)));
+  $src.addEventListener('change', loadRecords);
+  let t; $q.addEventListener('input', () => { clearTimeout(t); t = setTimeout(loadRecords, 200); });
+  await Promise.all([loadRecords(), loadEvents()]);
+})().catch(e => toast(e.message, true));
+</script></body></html>

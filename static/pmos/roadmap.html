@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roadmap · PM OS</title><link rel="stylesheet" href="pmos.css"></head>
+<body><main>
+  <div class="toolbar">
+    <h2 style="margin:0" id="title">Roadmap</h2>
+    <span class="spacer" style="flex:1"></span>
+    <button class="btn" id="rebuild" data-testid="rebuild">Rebuild &amp; log</button>
+    <a class="btn primary" id="export-md" data-testid="export-md" href="/api/pmos/roadmap.md" download="ROADMAP.md">Export ROADMAP.md</a>
+  </div>
+  <p class="muted" id="sub"></p>
+  <div id="risk"></div>
+  <div class="grid-3" id="months" data-testid="months"></div>
+  <h2>Below the line</h2>
+  <p class="muted">Ranked by RICE but no squad capacity left this quarter (or blocked by a dependency).</p>
+  <div class="scroll-x"><table data-testid="below-the-line"><thead><tr><th>Item</th><th>Squad</th><th>Effort</th><th>RICE</th><th>Why not</th></tr></thead><tbody id="below"></tbody></table></div>
+</main>
+<script src="pmos.js"></script>
+<script>
+renderNav('Roadmap');
+const squadName = {};
+
+function themeEditor(m) {
+  const wrap = h('div', { class: 'theme', 'data-testid': 'theme-' + m.month });
+  const show = () => {
+    wrap.replaceChildren(h('span', { class: 'theme-text', 'data-testid': 'theme-text-' + m.month, title: 'Click to edit theme', tabindex: '0',
+      onclick: edit }, m.theme || 'Set a theme'), h('span', {}, '✎'));
+  };
+  const edit = () => {
+    const inp = h('input', { value: m.theme, 'data-testid': 'theme-input-' + m.month, 'aria-label': 'Theme for ' + m.label, size: '28' });
+    const save = async () => {
+      const v = inp.value.trim();
+      if (!v || v === m.theme) return show();
+      try { await api('/months/' + m.month + '/theme', { method: 'PUT', body: { theme: v } }); await load(); } catch (e) { toast(e.message, true); show(); }
+    };
+    inp.addEventListener('keydown', ev => { if (ev.key === 'Enter') save(); if (ev.key === 'Escape') show(); });
+    inp.addEventListener('blur', save);
+    wrap.replaceChildren(inp); inp.focus();
+  };
+  show(); return wrap;
+}
+function capacity(m) {
+  return Object.entries(m.capacity).map(([s, c]) => h('div', { class: 'cap', 'data-testid': 'capacity-' + m.month + '-' + s },
+    h('div', {}, (squadName[s] || s) + ' ', h('span', { class: 'muted' }, c.used + ' / ' + c.total + ' pw')),
+    h('div', { class: 'bar' + (c.used >= c.total ? ' full' : '') }, h('i', { style: 'width:' + Math.min(100, c.used / c.total * 100) + '%' }))));
+}
+function card(i, plan) {
+  const late = plan.at_risk.find(r => r.id === i.id);
+  return h('div', { class: 'card' + (i.committed ? ' committed' : ''), 'data-testid': 'card-' + i.id },
+    h('div', { class: 'row' }, h('h4', {}, i.title), h('span', { class: 'score', 'data-testid': 'rice-' + i.id, title: 'RICE score' }, i.rice.score.toFixed(2))),
+    h('div', { class: 'meta' },
+      i.committed && h('span', { class: 'badge committed', 'data-testid': 'badge-committed' }, 'Committed · due ' + i.due_date),
+      late && h('span', { class: 'badge risk' }, 'At risk: ' + late.reason),
+      i.phase === 'continues' && h('span', { class: 'badge info' }, 'Continues from ' + i.start_month),
+      i.phase === 'starts' && i.end_month !== i.start_month && h('span', { class: 'badge info' }, 'Ships ' + i.end_month),
+      i.pulled_by && h('span', { class: 'badge' }, 'Pulled forward for ' + i.pulled_by),
+      i.overridden.length > 0 && h('span', { class: 'badge', style: 'color:var(--warn)' }, 'Edited'),
+      h('span', { class: 'badge' }, (squadName[i.squad] || i.squad)),
+      h('span', { class: 'badge' }, i.month_pw + ' pw this month' + (i.oversized ? ' · ' + i.effort_pw + ' total' : ''))),
+    h('div', { class: 'muted' }, i.problem),
+    h('details', {}, h('summary', {}, 'Why · ' + i.rice.reach.accounts + ' accounts · ' + usd(i.rice.reach.total_arr) + ' ARR · ' + i.evidence_count + ' quotes'),
+      i.quotes.map(q => h('blockquote', {}, '“' + q.quote + '”', h('cite', {}, q.account + ' · ' + (SOURCE_LABEL[q.source] || q.source))))));
+}
+async function load() {
+  const plan = await api('/roadmap');
+  Object.assign(squadName, plan.squads);
+  document.getElementById('title').textContent = plan.company + ' — ' + plan.quarter + ' roadmap';
+  const committed = plan.months.flatMap(m => m.items.filter(i => i.committed && i.phase === 'starts')).length;
+  document.getElementById('sub').textContent = committed + ' contractual commitments pinned first; the rest ranked by RICE into remaining squad capacity (' + plan.months[0].capacity[Object.keys(plan.months[0].capacity)[0]].total + ' pw per squad per month).';
+  document.getElementById('risk').replaceChildren(...(plan.at_risk.length ? [h('div', { class: 'banner', 'data-testid': 'at-risk' },
+    plan.at_risk.length + ' commitment(s) at risk: ' + plan.at_risk.map(r => r.id + ' (' + r.reason + ')').join('; '))] : []));
+  document.getElementById('months').replaceChildren(...plan.months.map(m => h('section', { class: 'month', 'data-testid': 'month-' + m.month },
+    h('h3', {}, m.label), themeEditor(m), capacity(m), m.items.map(i => card(i, plan)),
+    m.items.length === 0 && h('p', { class: 'muted' }, 'Nothing scheduled.'))));
+  document.getElementById('below').replaceChildren(...plan.below_the_line.map(b => h('tr', { 'data-testid': 'below-' + b.id },
+    h('td', {}, h('b', {}, b.title), h('div', { class: 'muted' }, b.problem)), h('td', {}, squadName[b.squad] || b.squad), h('td', { class: 'num' }, b.effort_pw + ' pw'),
+    h('td', { class: 'num score' }, b.rice_score.toFixed(2)), h('td', { class: 'muted' }, b.reason))));
+}
+document.getElementById('rebuild').addEventListener('click', async () => {
+  try { await api('/roadmap/build', { method: 'POST' }); toast('Roadmap rebuilt and logged'); await load(); } catch (e) { toast(e.message, true); }
+});
+load().catch(e => toast(e.message, true));
+</script></body></html>

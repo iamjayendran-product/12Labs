@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Backlog & RICE · PM OS</title><link rel="stylesheet" href="pmos.css"></head>
+<body><main>
+  <h2 style="margin-top:0">Backlog &amp; RICE</h2>
+  <p class="muted" id="meta"></p>
+  <p class="muted">Reach is computed from the accounts in each item's evidence (ARR-weighted). Edit Impact, Confidence or Effort — edits are logged and survive a re-derive. Amber marks an override of Claude's suggestion.</p>
+  <div class="toolbar">
+    <button class="btn" id="merge-btn" data-testid="merge-btn" disabled>Merge selected…</button>
+    <select id="merge-target" aria-label="Merge into" hidden></select>
+    <span class="muted" id="status"></span>
+  </div>
+  <div class="scroll-x"><table id="tbl" data-testid="backlog-table">
+    <thead><tr>
+      <th></th>
+      <th class="sortable" data-sort="title">Item</th><th class="sortable" data-sort="squad">Squad</th>
+      <th class="sortable" data-sort="reach">Reach</th><th>Impact</th><th>Confidence</th><th>Effort (pw)</th>
+      <th class="sortable" data-sort="score">RICE</th><th></th>
+    </tr></thead>
+    <tbody id="rows"></tbody>
+  </table></div>
+  <div id="warn"></div>
+  <div id="drawer" hidden></div>
+</main>
+<script src="pmos.js"></script>
+<script>
+renderNav('Backlog & RICE');
+const IMPACT = [0.25, 0.5, 1, 2, 3], CONF = [0.5, 0.8, 1];
+let items = [], sortKey = 'score', sortDir = -1; const selected = new Set();
+const key = { title: i => i.title.toLowerCase(), squad: i => i.squad, reach: i => i.rice.reach.score, score: i => i.rice.score };
+
+async function patch(id, fields) {
+  try { await api('/items/' + id, { method: 'PATCH', body: { fields } }); await load(); }
+  catch (e) { toast(e.message, true); await load(); }
+}
+function numSelect(id, field, options, current, fmt, overridden) {
+  const s = h('select', { 'data-testid': field + '-select-' + id, 'aria-label': field + ' for ' + id },
+    options.map(v => h('option', { value: v, selected: v === current }, fmt(v))));
+  s.addEventListener('change', () => patch(id, { [field]: parseFloat(s.value) }));
+  return h('td', { class: overridden ? 'cell-edited' : '' }, s);
+}
+function showEvidence(item) {
+  const d = document.getElementById('drawer');
+  d.className = 'drawer'; d.hidden = false;
+  const r = item.rice.reach;
+  d.replaceChildren(
+    h('button', { class: 'btn', onclick: () => { d.hidden = true; }, 'data-testid': 'close-drawer' }, 'Close'),
+    h('h3', {}, item.title), h('p', { class: 'muted' }, item.problem),
+    h('p', {}, h('b', {}, 'Reach ' + r.score), ' = ' + r.accounts + ' accounts, ' + usd(r.total_arr) + ' ARR'),
+    h('table', {}, h('tbody', {}, r.breakdown.map(b => h('tr', {}, h('td', {}, b.account), h('td', { class: 'num' }, b.arr == null ? 'no CRM ARR' : usd(b.arr)), h('td', { class: 'num' }, '×' + b.weight.toFixed(2)))))),
+    h('h3', {}, 'Evidence (' + item.evidence.length + ')'),
+    item.evidence.map(e => h('blockquote', {}, '“' + e.quote + '”', h('cite', {}, srcBadge(e.source), ' ' + e.account + ' · ' + e.record_id))),
+    h('p', { class: 'muted' }, 'Suggested by Claude: ' + item.suggested.rationale));
+}
+function render() {
+  const sorted = items.slice().sort((a, b) => {
+    const ka = key[sortKey](a), kb = key[sortKey](b);
+    return (ka < kb ? -1 : ka > kb ? 1 : 0) * sortDir || a.id.localeCompare(b.id);
+  });
+  document.getElementById('rows').replaceChildren(...sorted.map(i => {
+    const ov = new Set(i.overridden), eff = i.effective, committed = !!i.commitment_id;
+    const cb = h('input', { type: 'checkbox', 'aria-label': 'select ' + i.id, 'data-testid': 'select-' + i.id, checked: selected.has(i.id) });
+    cb.addEventListener('change', () => { cb.checked ? selected.add(i.id) : selected.delete(i.id); syncMerge(); });
+    const effort = h('input', { type: 'number', min: '0.5', step: '0.5', value: eff.effort_pw, 'data-testid': 'effort-input-' + i.id, 'aria-label': 'effort for ' + i.id });
+    effort.addEventListener('change', () => patch(i.id, { effort_pw: parseFloat(effort.value) }));
+    const drop = h('button', { class: 'btn', disabled: committed, title: committed ? 'Committed items are pinned' : 'Drop from backlog', 'data-testid': 'drop-' + i.id,
+      onclick: async () => { try { await api('/items/' + i.id, { method: 'DELETE' }); selected.delete(i.id); await load(); } catch (e) { toast(e.message, true); } } }, 'Drop');
+    return h('tr', { 'data-testid': 'row-' + i.id, class: ov.size ? 'overridden' : '' },
+      h('td', {}, cb),
+      h('td', {}, h('b', {}, i.title), ' ', committed && h('span', { class: 'badge committed' }, 'Committed'), h('div', { class: 'muted' }, i.theme + ' · ' + i.evidence.length + (i.evidence.length === 1 ? ' quote' : ' quotes'))),
+      h('td', {}, i.squad),
+      h('td', { class: 'num', title: i.rice.reach.accounts + ' accounts · ' + usd(i.rice.reach.total_arr) + ' ARR' }, i.rice.reach.score.toFixed(1)),
+      numSelect(i.id, 'impact', IMPACT, eff.impact, v => v, ov.has('impact')),
+      numSelect(i.id, 'confidence', CONF, eff.confidence, v => Math.round(v * 100) + '%', ov.has('confidence')),
+      h('td', { class: ov.has('effort_pw') ? 'cell-edited' : '' }, effort),
+      h('td', { class: 'num score', 'data-testid': 'score-' + i.id }, i.rice.score.toFixed(2)),
+      h('td', {}, h('button', { class: 'btn', onclick: () => showEvidence(i), 'data-testid': 'evidence-' + i.id }, 'Evidence'), ' ', drop));
+  }));
+}
+function syncMerge() {
+  const btn = document.getElementById('merge-btn'), sel = document.getElementById('merge-target');
+  btn.disabled = selected.size < 2;
+  sel.hidden = selected.size < 2;
+  sel.replaceChildren(...[...selected].map(id => h('option', { value: id }, 'into ' + (items.find(i => i.id === id) || { title: id }).title)));
+}
+async function load() {
+  const d = await api('/backlog');
+  items = d.items;
+  for (const id of [...selected]) if (!items.some(i => i.id === id)) selected.delete(id);
+  document.getElementById('meta').textContent = d.items.length + ' items derived ' + fmtTs(d.derived_at) + (d.dropped.length ? ' · ' + d.dropped.length + ' dropped' : '');
+  document.getElementById('warn').replaceChildren(...(d.orphaned_overrides.length ? [h('div', { class: 'banner' }, 'Overrides for items no longer in the backlog: ' + d.orphaned_overrides.join(', '))] : []));
+  render(); syncMerge();
+}
+document.querySelectorAll('th.sortable').forEach(th => th.addEventListener('click', () => {
+  const k = th.dataset.sort; sortDir = sortKey === k ? -sortDir : (k === 'title' || k === 'squad' ? 1 : -1); sortKey = k; render();
+}));
+document.getElementById('merge-btn').addEventListener('click', async () => {
+  const into = document.getElementById('merge-target').value, from = [...selected].filter(i => i !== into);
+  try { await api('/items/merge', { method: 'POST', body: { into, from } }); selected.clear(); toast('Merged ' + from.length + ' into ' + into); await load(); }
+  catch (e) { toast(e.message, true); }
+});
+load().catch(e => toast(e.message, true));
+</script></body></html>

@@ -70,6 +70,7 @@ class Pipeline:
             m["items"] = [enrich(i) for i in m["items"]]
         plan["below_the_line"] = [{**b, "problem": by_id[b["id"]]["problem"],
                                    "rice": by_id[b["id"]]["rice"]} for b in plan["below_the_line"]]
+        plan["squads"] = {s_.id: s_.name for s_ in c.config.squads}
         plan["company"] = c.config.name
         plan["quarter"] = c.config.quarter.label
         plan["commitments"] = [c_.model_dump() for c_ in c.commitments]
