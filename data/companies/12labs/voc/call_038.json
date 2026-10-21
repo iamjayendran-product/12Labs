@@ -1,0 +1,24 @@
+{
+  "id": "call_038",
+  "customer_name": "Rohan Mehta",
+  "company": "Kite Education",
+  "date": "2026-04-20",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "What languages matter for your learners?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Hindi first. Our largest user base is in India and the English voice is not enough for younger students."
+    },
+    {
+      "speaker": "agent",
+      "text": "Pricing impact?"
+    },
+    {
+      "speaker": "customer",
+      "text": "We can only pay for what is used. A per-minute pay-as-you-go plan is the only way our model works."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "call_040",
+  "customer_name": "Beth Calloway",
+  "company": "Harbor Call Center",
+  "date": "2026-05-18",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "How does the voice agent perform on live calls?"
+    },
+    {
+      "speaker": "customer",
+      "text": "The pause before the voice starts is the problem. Latency over 300 milliseconds feels like a dropped call to customers."
+    },
+    {
+      "speaker": "agent",
+      "text": "And support?"
+    },
+    {
+      "speaker": "customer",
+      "text": "When we hit an issue, response time matters. We need a support SLA, an hour for P1."
+    }
+  ]
+}

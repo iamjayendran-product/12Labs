@@ -1,0 +1,56 @@
+[
+  {
+    "id": "com_001",
+    "account": "Vantage Enterprise Systems",
+    "commitment": "Deliver SAML SSO and a SOC 2 Type II report to Vantage.",
+    "due_date": "2027-01-31",
+    "arr_at_risk_usd": 480000,
+    "contract_ref": "MSA-VES-2026-014",
+    "linked_theme": "sso-soc2"
+  },
+  {
+    "id": "com_002",
+    "account": "Clearline Support Co.",
+    "commitment": "Contractual 1-hour P1 support response SLA.",
+    "due_date": "2027-01-15",
+    "arr_at_risk_usd": 140000,
+    "contract_ref": "SLA-CSC-2026-031",
+    "linked_theme": "support-sla"
+  },
+  {
+    "id": "com_003",
+    "account": "Junction Mobile",
+    "commitment": "Ship Android SDK with streaming playback parity with iOS.",
+    "due_date": "2027-02-15",
+    "arr_at_risk_usd": 190000,
+    "contract_ref": "RENEW-JM-2026-007",
+    "linked_theme": "android-sdk"
+  },
+  {
+    "id": "com_004",
+    "account": "Beacon Arabic Media",
+    "commitment": "Deliver Modern Standard and Gulf-dialect Arabic voices.",
+    "due_date": "2027-02-28",
+    "arr_at_risk_usd": 220000,
+    "contract_ref": "MSA-BAM-2026-003",
+    "linked_theme": "hindi-arabic-voices"
+  },
+  {
+    "id": "com_005",
+    "account": "Solace Health",
+    "commitment": "Offer VPC deployment with BAA for HIPAA workloads.",
+    "due_date": "2027-03-15",
+    "arr_at_risk_usd": 360000,
+    "contract_ref": "MSA-SH-2026-021",
+    "linked_theme": "vpc-onprem"
+  },
+  {
+    "id": "com_006",
+    "account": "Rapidfire Logistics",
+    "commitment": "Webhook delivery guarantees: retries, signing, delivery log.",
+    "due_date": "2027-03-31",
+    "arr_at_risk_usd": 120000,
+    "contract_ref": "RENEW-RL-2026-012",
+    "linked_theme": "webhook-reliability"
+  }
+]

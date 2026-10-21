@@ -4,9 +4,9 @@ Status: `planned` | `in-progress` | `done`. A feature is `done` only after its a
 
 | ID | Feature | Acceptance criteria | Status | Updated (UTC) |
 |----|---------|---------------------|--------|---------------|
-| F-01 | Project scaffolding | CLAUDE.md, FEATURES.md, STATE.md, docs/plans exist; pytest-playwright installed | done | 2026-10-21T00:00:00Z |
-| F-02 | Data layout + company config | `data/companies/12labs/` holds voc + company.json; `ingest.py` reads it, old path still works; existing tests green | done | 2026-10-21T00:00:00Z |
-| F-03 | Mock data + schemas | CRM (~30), Fireflies (~10), NPS/support (~40), commitments (~6), ~15 new interviews; all validate; ~12 planted themes | planned | |
+| F-01 | Project scaffolding | CLAUDE.md, FEATURES.md, STATE.md, docs/plans exist; pytest-playwright installed | done | 2026-10-21T11:20:16Z |
+| F-02 | Data layout + company config | `data/companies/12labs/` holds voc + company.json; `ingest.py` reads it, old path still works; existing tests green | done | 2026-10-21T11:20:16Z |
+| F-03 | Mock data + schemas | CRM (~30), Fireflies (~10), NPS/support (~40), commitments (~6), ~15 new interviews; all validate; ~12 planted themes | done | 2026-10-21T11:20:16Z |
 | F-04 | State / event log | append-only events with ISO timestamps; snapshot replay; overrides survive re-derive | planned | |
 | F-05 | RICE engine | Reach = sum of clamp(arr/median,1,3) over distinct accounts; score = R·I·C/E; overrides applied | planned | |
 | F-06 | Scheduler | commitments first by due month; capacity per squad-month; dependencies; at-risk and below-the-line | planned | |

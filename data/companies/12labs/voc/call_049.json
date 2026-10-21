@@ -1,0 +1,24 @@
+{
+  "id": "call_049",
+  "customer_name": "Raj Kulkarni",
+  "company": "Nimbus Cloud Telephony",
+  "date": "2026-09-21",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "What matters in a telephony voice layer?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Time to first byte. We measure latency at 600 milliseconds. Below 300 is the bar for conversation."
+    },
+    {
+      "speaker": "agent",
+      "text": "Deployment?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Some carriers want it on-prem or in a private cloud."
+    }
+  ]
+}

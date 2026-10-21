@@ -1,0 +1,24 @@
+{
+  "id": "call_051",
+  "customer_name": "Ken Ota",
+  "company": "Vega Robotics",
+  "date": "2026-10-15",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "What do you need for on-device use?"
+    },
+    {
+      "speaker": "customer",
+      "text": "We run robots in factories without internet. An on-prem or private cloud installation is the only way we could use you."
+    },
+    {
+      "speaker": "agent",
+      "text": "Languages?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Japanese and Hindi first, then Arabic for Gulf plants."
+    }
+  ]
+}

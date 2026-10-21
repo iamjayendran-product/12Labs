@@ -1,0 +1,48 @@
+{
+  "id": "ff_003",
+  "title": "Berlin Transit: renewal and announcement latency",
+  "date": "2026-05-12",
+  "account": "Berlin Transit Authority",
+  "attendees": [
+    "Lena Hoffmann (BTA)",
+    "Karl Brandt (BTA Ops)",
+    "Priya Raman (12Labs)"
+  ],
+  "sentences": [
+    {
+      "speaker": "Karl Brandt",
+      "start_s": 0.0,
+      "text": "At peak hours a station announcement starts almost a second after we trigger it."
+    },
+    {
+      "speaker": "Priya Raman",
+      "start_s": 11.7,
+      "text": "Our measured time to first byte for your region is around seven hundred milliseconds."
+    },
+    {
+      "speaker": "Karl Brandt",
+      "start_s": 23.8,
+      "text": "That is too slow. Passengers are already walking away by the time the voice starts."
+    },
+    {
+      "speaker": "Lena Hoffmann",
+      "start_s": 35.7,
+      "text": "We would like to see that under three hundred, and a regional endpoint in Frankfurt."
+    },
+    {
+      "speaker": "Lena Hoffmann",
+      "start_s": 47.7,
+      "text": "Also data residency. Could this run on-prem or in a private cloud inside Germany?"
+    },
+    {
+      "speaker": "Priya Raman",
+      "start_s": 59.5,
+      "text": "I will bring both to our platform team. I can't promise dates on this call."
+    }
+  ],
+  "summary": "Berlin Transit renewed but wants streaming latency under 300 ms and a Germany-resident or private-cloud option. No contractual date.",
+  "action_items": [
+    "Priya to share latency findings with platform team",
+    "Priya to check Frankfurt regional endpoint plan"
+  ]
+}

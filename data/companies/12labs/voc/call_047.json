@@ -1,0 +1,24 @@
+{
+  "id": "call_047",
+  "customer_name": "Carlos Mena",
+  "company": "Delta Dispatch",
+  "date": "2026-08-24",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "How do you consume job results?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Through webhooks. They fail without a retry. We need retries and a delivery log or we will poll instead."
+    },
+    {
+      "speaker": "agent",
+      "text": "SLA?"
+    },
+    {
+      "speaker": "customer",
+      "text": "A support response time commitment would calm our operations team."
+    }
+  ]
+}

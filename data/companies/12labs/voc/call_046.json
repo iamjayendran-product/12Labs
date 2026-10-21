@@ -1,0 +1,24 @@
+{
+  "id": "call_046",
+  "customer_name": "Meera Iyer",
+  "company": "Saffron Foods",
+  "date": "2026-08-10",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "Which markets do you serve?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Mostly India. Hindi voice is a must for our IVR, otherwise we cannot replace the human agents."
+    },
+    {
+      "speaker": "agent",
+      "text": "Budget?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Usage-based, per-minute. Order volume swings with festivals."
+    }
+  ]
+}

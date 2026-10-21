@@ -1,0 +1,24 @@
+{
+  "id": "call_037",
+  "customer_name": "Anita Rao",
+  "company": "Pulse Telehealth",
+  "date": "2026-04-06",
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "Does your security posture meet what a telehealth company needs?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Not yet. We need SOC 2 Type II and ideally a private VPC deployment, otherwise our compliance team will not approve."
+    },
+    {
+      "speaker": "agent",
+      "text": "Would a dedicated tenant work?"
+    },
+    {
+      "speaker": "customer",
+      "text": "Only if it is in our cloud account. HIPAA review is strict."
+    }
+  ]
+}

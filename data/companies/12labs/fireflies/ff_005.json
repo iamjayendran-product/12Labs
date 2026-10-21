@@ -1,0 +1,48 @@
+{
+  "id": "ff_005",
+  "title": "Junction Mobile: renewal check-in",
+  "date": "2026-06-04",
+  "account": "Junction Mobile",
+  "attendees": [
+    "Hannah Whitfield (Junction)",
+    "Owen Pratt (Junction Mobile Eng)",
+    "Marcus Hale (12Labs)"
+  ],
+  "sentences": [
+    {
+      "speaker": "Owen Pratt",
+      "start_s": 0.0,
+      "text": "The Android SDK still has no streaming playback. iOS has had it for most of a year."
+    },
+    {
+      "speaker": "Marcus Hale",
+      "start_s": 11.9,
+      "text": "I know. The Android work is on the plan."
+    },
+    {
+      "speaker": "Hannah Whitfield",
+      "start_s": 20.8,
+      "text": "We already pushed our Android voice assistant by a quarter. We cannot do that again."
+    },
+    {
+      "speaker": "Owen Pratt",
+      "start_s": 32.8,
+      "text": "Put in the renewal that Android streaming parity arrives by mid February."
+    },
+    {
+      "speaker": "Marcus Hale",
+      "start_s": 44.0,
+      "text": "I'll make sure the fifteenth of February is in the renewal paperwork."
+    },
+    {
+      "speaker": "Hannah Whitfield",
+      "start_s": 54.9,
+      "text": "If it slips twice, we will evaluate Vocalis seriously."
+    }
+  ],
+  "summary": "Junction renewed on the commitment of Android streaming parity by 15 Feb 2027. Another slip risks churn to Vocalis.",
+  "action_items": [
+    "Marcus to add 15 Feb 2027 Android date to renewal",
+    "Marcus to share Android SDK plan"
+  ]
+}
