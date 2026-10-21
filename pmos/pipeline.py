@@ -15,7 +15,9 @@ from pmos.state import EventLog, build_snapshot, write_snapshot
 
 def top_quotes(item: Dict, arr: Dict[str, int], n: int = 3) -> List[Dict]:
     """Pick up to n quotes: distinct accounts first, biggest ARR first, mixed source types."""
-    ranked = sorted(item["evidence"], key=lambda e: (-(arr.get(e["account"]) or 0), e["record_id"]))
+    # Commitment lines are our own register, not customer voice: use only as a last resort.
+    pool = [e for e in item["evidence"] if e["source"] != "commitment"] or item["evidence"]
+    ranked = sorted(pool, key=lambda e: (-(arr.get(e["account"]) or 0), e["record_id"]))
     picked, accounts, sources = [], set(), set()
     for prefer_new_source in (True, False):
         for e in ranked:
@@ -70,6 +72,7 @@ class Pipeline:
             m["items"] = [enrich(i) for i in m["items"]]
         plan["below_the_line"] = [{**b, "problem": by_id[b["id"]]["problem"],
                                    "rice": by_id[b["id"]]["rice"]} for b in plan["below_the_line"]]
+        plan["source_counts"] = self.sources(limit=1)["counts"]
         plan["squads"] = {s_.id: s_.name for s_ in c.config.squads}
         plan["company"] = c.config.name
         plan["quarter"] = c.config.quarter.label
@@ -85,6 +88,14 @@ class Pipeline:
         items = [i.model_dump() for i in self.derived().items]
         write_snapshot(self.state_dir, items, self.log.read())
         return plan
+
+    def export(self, path: str, actor: str = "user") -> str:
+        from pmos.export import render_markdown  # local: export imports Pipeline
+        text = render_markdown(self.plan())
+        with open(path, "w") as f:
+            f.write(text)
+        self.log.append("roadmap.exported", actor, {"path": os.path.basename(path), "chars": len(text)})
+        return path
 
     def sources(self, source: Optional[str] = None, q: Optional[str] = None,
                 account: Optional[str] = None, limit: int = 500) -> Dict:

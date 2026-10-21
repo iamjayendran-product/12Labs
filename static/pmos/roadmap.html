@@ -6,7 +6,7 @@
     <h2 style="margin:0" id="title">Roadmap</h2>
     <span class="spacer" style="flex:1"></span>
     <button class="btn" id="rebuild" data-testid="rebuild">Rebuild &amp; log</button>
-    <a class="btn primary" id="export-md" data-testid="export-md" href="/api/pmos/roadmap.md" download="ROADMAP.md">Export ROADMAP.md</a>
+    <a class="btn primary" id="export-md" data-testid="export-md" href="/api/pmos/roadmap.md" download="ROADMAP.md" onclick="fetch('/api/pmos/roadmap/export',{method:'POST'})">Export ROADMAP.md</a>
   </div>
   <p class="muted" id="sub"></p>
   <div id="risk"></div>

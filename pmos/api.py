@@ -1,9 +1,13 @@
 """FastAPI router for the PM OS. `create_router` takes its paths so tests can use temp state."""
 from typing import Dict, List, Optional
 
+import os
+
 from fastapi import APIRouter, HTTPException, Query
+from fastapi.responses import Response
 from pydantic import BaseModel
 
+from pmos.export import render_markdown
 from pmos.pipeline import Pipeline
 
 
@@ -27,7 +31,8 @@ class ThemeBody(BaseModel):
     theme: str
 
 
-def create_router(root: str, company: str, state_dir: Optional[str] = None) -> APIRouter:
+def create_router(root: str, company: str, state_dir: Optional[str] = None,
+                  export_path: Optional[str] = None) -> APIRouter:
     pipe = Pipeline(root, company, state_dir)
     router = APIRouter(prefix="/api/pmos")
 
@@ -79,6 +84,16 @@ def create_router(root: str, company: str, state_dir: Optional[str] = None) -> A
     @router.get("/roadmap")
     def roadmap():
         return pipe.plan()
+
+    @router.get("/roadmap.md")
+    def roadmap_md():
+        return Response(render_markdown(pipe.plan()), media_type="text/markdown; charset=utf-8",
+                        headers={"Content-Disposition": 'attachment; filename="ROADMAP.md"'})
+
+    @router.post("/roadmap/export")
+    def export_md():
+        path = pipe.export(export_path or os.path.join(root, "ROADMAP.md"), "user")
+        return {"path": os.path.basename(path), "event": pipe.log.read()[-1]}
 
     @router.post("/roadmap/build")
     def build():
