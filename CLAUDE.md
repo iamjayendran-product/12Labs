@@ -8,7 +8,7 @@ Pipeline: source files → `/derive-backlog` (Claude Code skill) → `derived/ba
 
 ## Commands
 - Setup: `source .venv/bin/activate && pip install -r requirements-dev.txt && python -m playwright install chromium`
-- Tests: `pytest` (unit + api), `pytest tests/e2e` (Playwright, starts uvicorn itself)
+- Tests: `pytest` runs everything incl. Playwright e2e (starts uvicorn itself, isolated state); `pytest --ignore=tests/e2e` for unit/api only
 - Validate data: `python -m pmos.validate --company 12labs`
 - Run: `python scripts/ingest.py && uvicorn app.main:app --reload` → `/` chat, `/pmos/roadmap.html` roadmap
 
