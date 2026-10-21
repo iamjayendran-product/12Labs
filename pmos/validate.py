@@ -15,6 +15,7 @@ from pmos.schema import Backlog
 from pmos.state import EventLog
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+MIN_QUOTE_CHARS = 15
 
 
 def validate_backlog(company: Company, backlog: Backlog) -> List[str]:
@@ -40,8 +41,15 @@ def validate_backlog(company: Company, backlog: Backlog) -> List[str]:
                 errors.append(
                     f"{item.id}: evidence {ev.record_id} account {ev.account!r} != record account {rec['account']!r}"
                 )
-            if ev.quote not in rec["text"]:
-                errors.append(f"{item.id}: quote not found verbatim in {ev.record_id}: {ev.quote[:60]!r}")
+            quote = ev.quote
+            if "\n" in quote:
+                errors.append(f"{item.id}: quote spans lines/turns in {ev.record_id}: {quote[:60]!r}")
+            elif len(quote.strip()) < MIN_QUOTE_CHARS:
+                errors.append(f"{item.id}: quote too short ({MIN_QUOTE_CHARS}+ chars) in {ev.record_id}: {quote!r}")
+            elif not any(quote in piece for piece in rec["quotable"]):
+                kind = ("not customer speech (interviewer, summary or staff text)" if quote in rec["text"]
+                        else "not found verbatim")
+                errors.append(f"{item.id}: quote {kind} in {ev.record_id}: {quote[:60]!r}")
 
     covered = {i.commitment_id for i in backlog.items if i.commitment_id}
     for c in company.commitments:

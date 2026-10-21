@@ -142,3 +142,14 @@ def test_committed_oversized_item_still_starts_as_early_as_possible():
     items = [it("filler", 14, 1, commitment="c0"), it("long", 20, 5, commitment="c1")]
     plan = schedule(items, [com("c0", "2027-01-31"), com("c1", "2027-03-31")], cfg(squads=("s1",)))
     assert placed(plan)["long"]["start_month"] == "2027-01"
+
+
+def test_commitment_without_any_backlog_item_is_reported_at_risk():
+    plan = schedule([it("a", 4, 1)], [com("c9", "2027-02-28")], cfg(squads=("s1",)))
+    assert [(r["id"], r["reason"]) for r in plan["at_risk"]] == [("c9", "no backlog item for this commitment")]
+
+
+def test_item_with_unknown_squad_goes_below_the_line_instead_of_crashing():
+    plan = schedule([it("a", 4, 1, squad="nope"), it("b", 4, 0.5)], [], cfg(squads=("s1",)))
+    assert [(r["id"], r["reason"]) for r in plan["below_the_line"]] == [("a", "unknown squad 'nope'")]
+    assert "b" in placed(plan)

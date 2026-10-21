@@ -48,23 +48,28 @@ def load_company(root: str, name: str) -> Company:
     return company
 
 
-def source_records(company: Company) -> Iterator[Dict[str, str]]:
+def source_records(company: Company) -> Iterator[Dict]:
     """Flatten every record to {source, record_id, account, date, text}.
 
-    `text` is the full searchable text of the record; evidence quotes must be a
-    verbatim substring of it."""
+    `text` is the full searchable text of the record. `quotable` lists the pieces that
+    are customer speech (customer turns, customer sentences, CRM fields); an evidence
+    quote must be a verbatim substring of ONE of them (not an interviewer question,
+    an AI summary, or a 12Labs staff sentence)."""
     for i in company.interviews:
         yield dict(source="voc", record_id=i.id, account=i.company, date=i.date,
-                   text="\n".join(t.text for t in i.turns))
+                   text="\n".join(t.text for t in i.turns),
+                   quotable=[t.text for t in i.turns if t.speaker == "customer"])
     for s in company.support:
-        yield dict(source="support", record_id=s.id, account=s.account, date=s.date, text=s.text)
+        yield dict(source="support", record_id=s.id, account=s.account, date=s.date, text=s.text, quotable=[s.text])
     for c in company.crm:
         yield dict(source="crm", record_id=c.id, account=c.account, date=c.date,
-                   text=f"{c.request}\n{c.notes}")
+                   text=f"{c.request}\n{c.notes}", quotable=[c.request, c.notes])
     for m in company.fireflies:
         body = "\n".join(s.text for s in m.sentences)
+        staff = {a.split(" (")[0] for a in m.attendees if f"({company.config.name}" in a}
         yield dict(source="fireflies", record_id=m.id, account=m.account, date=m.date,
-                   text=f"{body}\n{m.summary}\n" + "\n".join(m.action_items))
+                   text=f"{body}\n{m.summary}\n" + "\n".join(m.action_items),
+                   quotable=[s.text for s in m.sentences if s.speaker not in staff])
     for c in company.commitments:
         yield dict(source="commitment", record_id=c.id, account=c.account, date=c.due_date,
-                   text=c.commitment)
+                   text=c.commitment, quotable=[c.commitment])

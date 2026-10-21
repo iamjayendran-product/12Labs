@@ -107,3 +107,48 @@ def test_cli_exit_codes_and_derived_event(tmp_path):
     assert events[-1]["payload"]["items"] == 1
     root2 = make_company(tmp_path / "two", [item(commitment_id=None)])
     assert main(["--company", "acme", "--root", root2]) == 1
+
+
+def add_sources(root):
+    base = os.path.join(root, "data", "companies", "acme")
+    json.dump({"id": "call_001", "customer_name": "Cy", "company": "Acme Co", "date": "2026-05-01", "turns": [
+        {"speaker": "agent", "text": "Would single sign-on matter to you at all?"},
+        {"speaker": "customer", "text": "Absolutely, we need SAML SSO for every vendor."},
+        {"speaker": "customer", "text": "And a SOC 2 report."}]}, open(os.path.join(base, "voc", "call_001.json"), "w"))
+    json.dump({"id": "ff_001", "title": "t", "date": "2026-05-02", "account": "Acme Co",
+               "attendees": ["Pat (Pat Corp)", "Dana (Acme)"],
+               "sentences": [{"speaker": "Pat", "start_s": 0, "text": "Our security team demands SAML SSO."},
+                             {"speaker": "Dana", "start_s": 5, "text": "We will look at an enterprise roadmap soon."}],
+               "summary": "Acme wants a strongly governed identity layer.", "action_items": ["Dana to scope hardware tokens"]},
+              open(os.path.join(base, "fireflies", "ff_001.json"), "w"))
+
+
+def quote_errors(tmp_path, source, rid, quote):
+    root = make_company(tmp_path, [item()])
+    add_sources(root)
+    bad = item(evidence=[{"source": source, "record_id": rid, "account": "Acme Co", "quote": quote}])
+    return errors_from(root, [bad])
+
+
+def errors_from(root, items):
+    base = os.path.join(root, "data", "companies", "acme", "derived", "backlog.json")
+    json.dump({"company": "acme", "derived_at": "t", "items": items}, open(base, "w"))
+    company = load_company(root, "acme")
+    return validate_backlog(company, Backlog(**json.load(open(base))))
+
+
+@pytest.mark.parametrize("source,rid,quote,expected_error", [
+    ("voc", "call_001", "Would single sign-on matter to you at all?", "not customer speech"),
+    ("voc", "call_001", "for every vendor.\nAnd a SOC 2 report.", "spans"),
+    ("fireflies", "ff_001", "strongly governed identity layer", "not customer speech"),
+    ("fireflies", "ff_001", "hardware tokens", "not customer speech"),
+    ("fireflies", "ff_001", "We will look at an enterprise roadmap soon.", "not customer speech"),
+    ("crm", "crm_001", "SAML SSO", "too short"),
+])
+def test_validator_accepts_only_customer_speech_and_substantial_single_line_quotes(tmp_path, source, rid, quote, expected_error):
+    assert any(expected_error in e for e in quote_errors(tmp_path, source, rid, quote))
+
+
+def test_customer_turn_and_customer_sentence_quotes_are_still_accepted(tmp_path):
+    assert quote_errors(tmp_path, "voc", "call_001", "Absolutely, we need SAML SSO for every vendor.") == []
+    assert quote_errors(tmp_path / "ff", "fireflies", "ff_001", "Our security team demands SAML SSO.") == []

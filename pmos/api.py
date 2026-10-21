@@ -55,6 +55,9 @@ def create_router(root: str, company: str, state_dir: Optional[str] = None,
     def patch_item(item_id: str, body: ItemPatch):
         if item_id not in current_items():
             raise HTTPException(404, f"unknown item {item_id}")
+        valid_squads = [q.id for q in pipe.company().config.squads]
+        if "squad" in body.fields and body.fields["squad"] not in valid_squads:
+            raise HTTPException(422, f"squad must be one of {valid_squads}")
         try:
             event = pipe.log.append("item.updated", "user", {"item_id": item_id, "fields": body.fields})
         except ValueError as e:
@@ -107,6 +110,6 @@ def create_router(root: str, company: str, state_dir: Optional[str] = None,
 
     @router.get("/events")
     def events(limit: int = Query(200, le=2000)):
-        return {"events": pipe.log.read()[-limit:]}
+        return {"events": pipe.log.read()[-limit:], "corrupt_lines": pipe.log.corrupt_lines()}
 
     return router

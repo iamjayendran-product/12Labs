@@ -123,3 +123,31 @@ def test_router_is_mounted_in_the_real_app_without_breaking_chat():
     c = TestClient(app)
     assert c.get("/api/pmos/sources").status_code == 200
     assert c.post("/chat", json={"question": "  "}).status_code == 400
+
+
+def test_patch_with_bad_types_is_422_and_logs_nothing(client):
+    for body in ('{"fields":{"effort_pw":"5"}}', '{"fields":{"effort_pw":null}}',
+                 '{"fields":{"effort_pw":Infinity}}', '{"fields":{"impact":true}}', '{"fields":{"title":null}}'):
+        r = client.patch("/api/pmos/items/sso-soc2", content=body, headers={"Content-Type": "application/json"})
+        assert r.status_code == 422, body
+    assert client.get("/api/pmos/events").json()["events"] == []
+
+
+def test_patch_to_an_unknown_squad_is_422_and_the_roadmap_still_builds(client):
+    assert client.patch("/api/pmos/items/hindi-voices", json={"fields": {"squad": "nope"}}).status_code == 422
+    assert client.get("/api/pmos/roadmap").status_code == 200
+
+
+def test_a_torn_event_line_does_not_break_the_app(client):
+    (client.state_dir / "events.jsonl").write_text('{"ts": "2026-10-21T10:00')
+    assert client.get("/api/pmos/roadmap").status_code == 200
+    body = client.get("/api/pmos/events").json()
+    assert body["events"] == [] and body["corrupt_lines"] == 1
+    assert client.patch("/api/pmos/items/hindi-voices", json={"fields": {"impact": 3}}).status_code == 200
+
+
+def test_a_stale_drop_event_cannot_remove_a_commitment_from_the_roadmap(client):
+    (client.state_dir / "events.jsonl").write_text(
+        json.dumps({"ts": "2026-10-21T10:00:00Z", "actor": "user", "type": "item.dropped", "payload": {"item_id": "support-sla"}}) + "\n")
+    plan = client.get("/api/pmos/roadmap").json()
+    assert "support-sla" in {i["id"] for m in plan["months"] for i in m["items"]}

@@ -17,3 +17,7 @@
 - **In progress:** whole-branch review.
 - **Next:** fix any Critical/Important review findings, then finish the branch (merge/PR is the user's call).
 - **Notes:** Hindi (6 accounts, 0.91 RICE) lands below the line because Voice Quality capacity goes to Arabic (committed), latency and pronunciation; Platform & SDK is fully consumed by commitments (Unity/Unreal below the line). Re-run /derive-backlog after any source change; ids are stable slugs.
+
+### 2026-10-21T11:43:39Z
+- **Done:** whole-branch review (opus) + one fix pass: replay can no longer drop/merge-away a commitment (ignored_events reported; commitments with no item flagged at risk); strict PATCH validation (no bool/null/inf/str; squad must exist) -> 422; torn/corrupt event lines skipped + counted; validator now accepts only substantial single-line customer speech. Suite 127 passed.
+- **Next:** user decides how to integrate `feat/pmos` (merge/PR). Deferred minors are listed in the final message.

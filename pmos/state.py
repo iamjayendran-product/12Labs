@@ -4,6 +4,7 @@ Overrides are keyed by item id, so they survive a re-derive of backlog.json as l
 as /derive-backlog keeps item ids stable."""
 import copy
 import json
+import math
 import os
 from datetime import datetime, timezone
 from typing import Callable, Dict, List, Optional
@@ -22,16 +23,25 @@ def utc_now() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
+def _is_number(v) -> bool:
+    return isinstance(v, (int, float)) and not isinstance(v, bool) and math.isfinite(v)
+
+
 def _validate_fields(fields: Dict) -> None:
+    if not isinstance(fields, dict) or not fields:
+        raise ValueError("fields must be a non-empty object")
     unknown = set(fields) - EDITABLE_FIELDS
     if unknown:
         raise ValueError(f"cannot edit fields: {sorted(unknown)}")
-    if "impact" in fields and fields["impact"] not in IMPACT_SCALE:
+    if "impact" in fields and not (_is_number(fields["impact"]) and fields["impact"] in IMPACT_SCALE):
         raise ValueError(f"impact must be one of {IMPACT_SCALE}")
-    if "confidence" in fields and fields["confidence"] not in CONFIDENCE_SCALE:
+    if "confidence" in fields and not (_is_number(fields["confidence"]) and fields["confidence"] in CONFIDENCE_SCALE):
         raise ValueError(f"confidence must be one of {CONFIDENCE_SCALE}")
-    if "effort_pw" in fields and not fields["effort_pw"] > 0:
-        raise ValueError("effort_pw must be > 0")
+    if "effort_pw" in fields and not (_is_number(fields["effort_pw"]) and fields["effort_pw"] > 0):
+        raise ValueError("effort_pw must be a finite number > 0")
+    for k in ("title", "squad"):
+        if k in fields and not (isinstance(fields[k], str) and fields[k].strip()):
+            raise ValueError(f"{k} must be a non-empty string")
 
 
 class EventLog:
@@ -47,16 +57,42 @@ class EventLog:
             _validate_fields(payload.get("fields", {}))
         event = {"ts": self._clock(), "actor": actor, "type": type_, "payload": payload}
         os.makedirs(self.dir, exist_ok=True)
+        prefix = ""
+        if os.path.exists(self.path) and os.path.getsize(self.path):
+            with open(self.path, "rb") as f:
+                f.seek(-1, os.SEEK_END)
+                if f.read(1) != b"\n":
+                    prefix = "\n"  # terminate a torn line so this event starts on its own line
         with open(self.path, "a") as f:
-            f.write(json.dumps(event) + "\n")
+            f.write(prefix + json.dumps(event) + "\n")
         return event
 
-    def read(self) -> List[Dict]:
+    def _scan(self):
+        events, corrupt = [], 0
         if not os.path.exists(self.path):
-            return []
+            return events, corrupt
         with open(self.path) as f:
-            events = [json.loads(line) for line in f if line.strip()]
-        return sorted(events, key=lambda e: e["ts"])  # stable: ties keep file order
+            for line in f:
+                if not line.strip():
+                    continue
+                try:
+                    e = json.loads(line)
+                except ValueError:
+                    corrupt += 1
+                    continue
+                if (isinstance(e, dict) and isinstance(e.get("ts"), str) and e.get("type") in EVENT_TYPES
+                        and isinstance(e.get("payload"), dict)):
+                    events.append(e)
+                else:
+                    corrupt += 1
+        return events, corrupt
+
+    def read(self) -> List[Dict]:
+        """Valid events in chronological order; unreadable lines are skipped (see corrupt_lines)."""
+        return sorted(self._scan()[0], key=lambda e: e["ts"])  # stable: ties keep file order
+
+    def corrupt_lines(self) -> int:
+        return self._scan()[1]
 
 
 def _evidence_key(e: Dict):
@@ -70,16 +106,27 @@ def build_snapshot(items: List[Dict], events: List[Dict]) -> Dict:
     dropped: List[str] = []
     merges = []
     month_themes: Dict[str, str] = {}
+    ignored: List[Dict] = []
+    pinned = {i["id"] for i in items if i.get("commitment_id")}  # a stale or hand-edited log must never remove a commitment
     for e in events:
         p = e["payload"]
-        if e["type"] == "item.updated":
-            overrides.setdefault(p["item_id"], {}).update(p["fields"])
-        elif e["type"] == "item.dropped":
-            dropped.append(p["item_id"])
-        elif e["type"] == "item.merged":
-            merges.append((p["into"], p["from"]))
-        elif e["type"] == "month.theme_set":
-            month_themes[p["month"]] = p["theme"]
+        try:
+            if e["type"] == "item.updated":
+                overrides.setdefault(p["item_id"], {}).update(p["fields"])
+            elif e["type"] == "item.dropped":
+                if p["item_id"] in pinned:
+                    ignored.append(e)
+                else:
+                    dropped.append(p["item_id"])
+            elif e["type"] == "item.merged":
+                away = [x for x in p["from"] if x not in pinned]
+                if len(away) != len(p["from"]):
+                    ignored.append(e)
+                merges.append((p["into"], away))
+            elif e["type"] == "month.theme_set":
+                month_themes[p["month"]] = p["theme"]
+        except (KeyError, TypeError):
+            ignored.append(e)
 
     for into, sources in merges:
         if into not in by_id:
@@ -116,6 +163,7 @@ def build_snapshot(items: List[Dict], events: List[Dict]) -> Dict:
         "dropped": sorted(set(dropped)),
         "orphaned_overrides": orphaned,
         "month_themes": month_themes,
+        "ignored_events": ignored,
     }
 
 

@@ -96,3 +96,41 @@ def test_write_snapshot_records_generation_time_and_event_count(tmp_path):
     path = write_snapshot(str(tmp_path), [item("a")], log.read(), now="2026-10-21T11:00:00Z")
     data = json.loads(open(path).read())
     assert data["generated_at"] == "2026-10-21T11:00:00Z" and data["event_count"] == 1
+
+
+# --- review fix pass: replay must never remove a commitment; tolerate a torn log ---
+def test_replay_ignores_drop_and_merge_away_of_committed_items_and_reports_them(tmp_path):
+    log = EventLog(str(tmp_path))
+    log.append("item.dropped", "user", {"item_id": "promise"})
+    log.append("item.merged", "user", {"into": "a", "from": ["promise"]})
+    snap = build_snapshot([item("a"), item("promise", commitment="com_001")], log.read())
+    assert {i["id"] for i in snap["items"]} == {"a", "promise"}
+    assert [e["type"] for e in snap["ignored_events"]] == ["item.dropped", "item.merged"]
+    assert snap["dropped"] == []
+
+
+@pytest.mark.parametrize("fields", [
+    {"effort_pw": "5"}, {"effort_pw": None}, {"effort_pw": True}, {"effort_pw": float("inf")},
+    {"effort_pw": float("nan")}, {"impact": True}, {"confidence": True}, {"impact": None},
+    {"title": None}, {"title": ""}, {"title": {"a": 1}}, {"squad": 7}, {"squad": ""},
+])
+def test_item_update_rejects_wrong_types(tmp_path, fields):
+    with pytest.raises(ValueError):
+        EventLog(str(tmp_path)).append("item.updated", "user", {"item_id": "a", "fields": fields})
+    assert EventLog(str(tmp_path)).read() == []
+
+
+def test_read_skips_corrupt_lines_and_append_still_works_after_a_torn_write(tmp_path):
+    log = EventLog(str(tmp_path), clock=lambda: "2026-10-21T10:00:00Z")
+    log.append("sources.loaded", "claude", {})
+    with open(log.path, "a") as f:
+        f.write('{"ts": "2026-10-21T00:00:0')  # torn write, no newline
+    assert [e["type"] for e in log.read()] == ["sources.loaded"] and log.corrupt_lines() == 1
+    log.append("backlog.derived", "claude", {"items": 1})
+    assert [e["type"] for e in log.read()] == ["sources.loaded", "backlog.derived"]
+
+
+def test_read_skips_lines_missing_required_keys(tmp_path):
+    log = EventLog(str(tmp_path))
+    (tmp_path / "events.jsonl").write_text('{"type": "x"}\n[]\n"str"\n')
+    assert log.read() == [] and log.corrupt_lines() == 3

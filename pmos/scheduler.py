@@ -47,8 +47,6 @@ def schedule(
 
     def allocate(item: Dict, earliest: int) -> Optional[Dict[str, float]]:
         squad, effort = item["squad"], item["effective"]["effort_pw"]
-        if squad not in cap:
-            raise ValueError(f"unknown squad {squad!r} on item {item['id']}")
         oversized = effort > cap[squad]
         for s in range(earliest, len(months)):
             if not oversized:
@@ -76,6 +74,9 @@ def schedule(
             return False
         if iid in in_progress:
             failed[iid] = "dependency cycle"
+            return False
+        if item["squad"] not in cap:
+            failed[iid] = f"unknown squad {item['squad']!r}"
             return False
         in_progress.add(iid)
         earliest = 0
@@ -124,6 +125,10 @@ def schedule(
         if not place(item):
             c = due_of[item["commitment_id"]]
             at_risk.append({"id": item["id"], "due_date": c.due_date, "reason": failed[item["id"]]})
+    have_item = {i.get("commitment_id") for i in items}
+    for c in commitments:
+        if c.id not in have_item:
+            at_risk.append({"id": c.id, "due_date": c.due_date, "reason": "no backlog item for this commitment"})
     others = sorted(
         (i for i in items if i.get("commitment_id") not in due_of),
         key=lambda i: (-i["rice"]["score"], i["id"]),
