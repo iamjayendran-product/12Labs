@@ -122,3 +122,23 @@ def test_month_theme_is_effort_weighted_and_an_override_wins():
 def test_scheduling_is_deterministic():
     items = [it(f"i{n}", 3 + n % 5, 5.0) for n in range(12)]
     assert schedule(items, [], cfg()) == schedule(list(reversed(items)), [], cfg())
+
+
+def test_continuing_oversized_item_is_listed_in_each_active_month_with_its_phase():
+    plan = schedule([it("vpc", 20, 5)], [], cfg(squads=("s1",)))
+    jan, feb, mar = plan["months"]
+    assert [(i["id"], i["phase"], i["month_pw"]) for i in jan["items"]] == [("vpc", "starts", 16)]
+    assert [(i["id"], i["phase"], i["month_pw"]) for i in feb["items"]] == [("vpc", "continues", 4)]
+    assert mar["items"] == []
+
+
+def test_uncommitted_oversized_item_does_not_start_in_a_sliver_of_capacity():
+    items = [it("filler", 14, 9), it("long", 20, 5)]  # Jan has only 2pw left after filler
+    long_ = placed(schedule(items, [], cfg(squads=("s1",))))["long"]
+    assert long_["start_month"] == "2027-02"
+
+
+def test_committed_oversized_item_still_starts_as_early_as_possible():
+    items = [it("filler", 14, 1, commitment="c0"), it("long", 20, 5, commitment="c1")]
+    plan = schedule(items, [com("c0", "2027-01-31"), com("c1", "2027-03-31")], cfg(squads=("s1",)))
+    assert placed(plan)["long"]["start_month"] == "2027-01"

@@ -5,7 +5,9 @@
    whose squad capacity fits and whose dependencies finished in an earlier month.
 3. Dependencies not yet scheduled are pulled forward ahead of their dependent.
 4. Regular items never split across months; items bigger than one squad-month
-   (oversized) span consecutive months. Items that don't fit go below the line.
+   (oversized) span consecutive months (an uncommitted one needs half a month of
+   room to start). Items that don't fit go below the line.
+5. A month column lists every item active in it, flagged "starts" or "continues".
 """
 from datetime import datetime
 from typing import Dict, List, Optional
@@ -53,6 +55,9 @@ def schedule(
                 if remaining[(squad, months[s])] >= effort:
                     return {months[s]: effort}
                 continue
+            committed = bool(item.get("commitment_id") in due_of)
+            if not committed and remaining[(squad, months[s])] < cap[squad] / 2:
+                continue  # don't start a long uncommitted item in a sliver of capacity
             alloc, left = {}, effort
             for m in months[s:]:
                 take = min(remaining[(squad, m)], left)
@@ -136,14 +141,17 @@ def schedule(
 
     out_months = []
     for m in months:
-        in_col = sorted(
-            (p for p in placed.values() if p["start_month"] == m),
+        active = sorted(
+            (p for p in placed.values() if m in p["allocation"]),
             key=lambda p: (not p["committed"], -p["rice_score"], p["id"]),
         )
+        in_col = [
+            {**p, "phase": "starts" if p["start_month"] == m else "continues", "month_pw": p["allocation"][m]}
+            for p in active
+        ]
         weights: Dict[str, float] = {}
-        for p in placed.values():
-            if m in p["allocation"]:
-                weights[p["theme"]] = weights.get(p["theme"], 0) + p["allocation"][m]
+        for p in active:
+            weights[p["theme"]] = weights.get(p["theme"], 0) + p["allocation"][m]
         themes = [{"theme": t, "pw": w} for t, w in sorted(weights.items(), key=lambda kv: (-kv[1], kv[0]))]
         theme = (month_themes or {}).get(m) or (themes[0]["theme"] if themes else "")
         out_months.append({

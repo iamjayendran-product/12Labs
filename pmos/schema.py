@@ -122,3 +122,61 @@ class CompanyConfig(BaseModel):
     quarter: Quarter
     squads: List[Squad]
     reach: ReachConfig
+
+
+_SLUG = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
+
+
+class Evidence(BaseModel):
+    source: Literal["voc", "support", "crm", "fireflies", "commitment"]
+    record_id: str
+    account: str
+    quote: str = Field(min_length=1)
+
+
+class Suggested(BaseModel):
+    impact: float
+    confidence: float
+    effort_pw: float = Field(gt=0)
+    rationale: str
+
+    @field_validator("impact")
+    @classmethod
+    def _impact(cls, v: float) -> float:
+        if v not in (0.25, 0.5, 1, 2, 3):
+            raise ValueError("impact must be one of 0.25, 0.5, 1, 2, 3")
+        return v
+
+    @field_validator("confidence")
+    @classmethod
+    def _confidence(cls, v: float) -> float:
+        if v not in (0.5, 0.8, 1.0):
+            raise ValueError("confidence must be one of 0.5, 0.8, 1.0")
+        return v
+
+
+class BacklogItem(BaseModel):
+    """One derived roadmap candidate. `id` must stay stable across re-derives so
+    user overrides in the event log keep applying."""
+    id: str
+    title: str
+    problem: str
+    squad: str
+    theme: str
+    evidence: List[Evidence] = Field(min_length=1)
+    suggested: Suggested
+    depends_on: List[str] = []
+    commitment_id: Optional[str] = None
+
+    @field_validator("id")
+    @classmethod
+    def _slug(cls, v: str) -> str:
+        if not _SLUG.match(v):
+            raise ValueError("id must be a lowercase-hyphen slug")
+        return v
+
+
+class Backlog(BaseModel):
+    company: str
+    derived_at: str
+    items: List[BacklogItem]
