@@ -14,5 +14,5 @@ Status: `planned` | `in-progress` | `done`. A feature is `done` only after its a
 | F-08 | API router | endpoints under `/api/pmos/*` per plan; mounted in `app/main.py`; chat unaffected | done | 2026-10-21T11:29:33Z |
 | F-09 | UI pages | Sources, Backlog/RICE (editable), Roadmap (Jan/Feb/Mar) | done | 2026-10-21T11:31:46Z |
 | F-10 | Markdown export | `ROADMAP.md` with 3 months, themes, committed, quotes, below the line | done | 2026-10-21T11:33:57Z |
-| F-11 | Playwright e2e | 4 flows from plan pass | planned | |
+| F-11 | Playwright e2e | 4 flows from plan pass | done | 2026-10-21T11:35:05Z |
 | F-12 | README + final verification | README documents PM OS; full suite green | planned | |

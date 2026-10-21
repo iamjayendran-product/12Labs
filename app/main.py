@@ -30,5 +30,12 @@ def chat(req: ChatRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 
-app.include_router(create_router(ROOT_DIR, os.getenv("PMOS_COMPANY", "12labs")))
+app.include_router(
+    create_router(
+        ROOT_DIR,
+        os.getenv("PMOS_COMPANY", "12labs"),
+        state_dir=os.getenv("PMOS_STATE_DIR"),  # defaults to <repo>/state
+        export_path=os.getenv("PMOS_EXPORT_PATH"),  # defaults to <repo>/ROADMAP.md
+    )
+)
 app.mount("/", StaticFiles(directory=STATIC_DIR, html=True), name="static")
