@@ -1,0 +1,11 @@
+{
+  "name": "12Labs",
+  "product": "Voice and audio AI platform (TTS, streaming voice agents, voice cloning, SDKs)",
+  "quarter": {"label": "Q1 2027", "months": ["2027-01", "2027-02", "2027-03"]},
+  "squads": [
+    {"id": "voice-quality", "name": "Voice Quality", "engineers": 4, "capacity_pw_per_month": 16},
+    {"id": "platform-sdk", "name": "Platform & SDK", "engineers": 4, "capacity_pw_per_month": 16},
+    {"id": "growth", "name": "Growth & Enterprise", "engineers": 4, "capacity_pw_per_month": 16}
+  ],
+  "reach": {"arr_weight_min": 1, "arr_weight_max": 3}
+}

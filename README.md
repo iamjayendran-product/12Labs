@@ -2,7 +2,7 @@
 
 A minimal RAG (retrieval-augmented generation) app for collating and
 querying customer/client feedback. This MVP uses mock transcripts
-(`data/transcripts/`) simulating AI-voice-agent-conducted customer
+(`data/companies/12labs/voc/`) simulating AI-voice-agent-conducted customer
 interviews about a fictional 12Labs voice/audio product. Swap in real
 transcripts later by dropping them into the same directory and re-running
 ingestion.
@@ -45,7 +45,7 @@ Set `GENERATION_BACKEND=anthropic` and `ANTHROPIC_API_KEY=...` in `.env`.
 python scripts/ingest.py
 ```
 
-This reads every transcript in `data/transcripts/`, chunks it, embeds the
+This reads every transcript in `data/companies/12labs/voc/`, chunks it, embeds the
 chunks locally, and writes them to `chroma_db/`. Re-run this any time
 transcripts change.
 
@@ -77,12 +77,12 @@ mocked happy paths) — none of this requires Ollama running or an
 ## Project layout
 
 ```
-data/transcripts/   mock customer feedback transcripts (JSON)
+data/companies/12labs/voc/   mock customer feedback transcripts (JSON)
 app/embeddings.py   local embedding model wrapper
 app/vectorstore.py  Chroma wrapper
 app/rag.py          retrieval + prompt/answer logic (Ollama or Claude backend)
 app/main.py         FastAPI app (POST /chat, serves static/)
-scripts/ingest.py   builds the vector store from data/transcripts/
+scripts/ingest.py   builds the vector store from data/companies/12labs/voc/
 static/index.html   chat UI
 tests/               pytest suite (chunking, retrieval, API contract)
 ```

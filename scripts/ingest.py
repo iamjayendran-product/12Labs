@@ -1,4 +1,5 @@
-"""Reads data/transcripts/*.json, chunks each transcript, embeds the chunks
+"""Reads data/companies/<company>/voc/*.json (falls back to the legacy
+data/transcripts/), chunks each transcript, embeds the chunks
 with a local model, and writes them into the local Chroma vector store.
 
 Run: python scripts/ingest.py
@@ -12,9 +13,19 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from app.embeddings import embed_texts
 from app.vectorstore import add_chunks, reset_collection
 
-TRANSCRIPTS_DIR = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "transcripts"
-)
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+COMPANY = os.getenv("PMOS_COMPANY", "12labs")
+
+
+def resolve_voc_dir(root: str, company: str) -> str:
+    """Per-company VoC folder if it exists, else the legacy transcripts folder."""
+    company_dir = os.path.join(root, "data", "companies", company, "voc")
+    if os.path.isdir(company_dir):
+        return company_dir
+    return os.path.join(root, "data", "transcripts")
+
+
+TRANSCRIPTS_DIR = resolve_voc_dir(ROOT, COMPANY)
 
 
 def chunk_transcript(transcript: dict) -> list[dict]:
